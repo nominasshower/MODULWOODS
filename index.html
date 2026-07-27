@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Modul Woods — Premium Vanity Cabinets</title>
+<link rel="icon" href="media/cropped-logo_mw-1.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;scroll-padding-top:88px;}
+body{margin:0;background:#F8F3EC;font-family:'Work Sans',sans-serif;color:#2B1D14;overflow-x:hidden;}
+img{display:block;max-width:100%;}
+a{text-decoration:none;color:inherit;}
+input,select,textarea,button{font-family:inherit;}
+:root{--wood-dark:#241610;--wood-mid:#5C3D28;--accent:#C07A3E;--accent-dark:#9C5F2C;--cream:#F8F3EC;--line:#E5D9C8;--muted:#7A6A57;--radius:3px;}
+
+/* ── SCROLL REVEAL ── */
+.mw-reveal{opacity:0;transform:translateY(30px);transition:opacity .75s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.22,1,.36,1);}
+.mw-reveal.visible{opacity:1;transform:none;}
+.mw-reveal-left{opacity:0;transform:translateX(-34px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1);}
+.mw-reveal-left.visible{opacity:1;transform:none;}
+.mw-reveal-right{opacity:0;transform:translateX(34px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1);}
+.mw-reveal-right.visible{opacity:1;transform:none;}
+.mw-stagger>*{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1);}
+.mw-stagger.visible>*:nth-child(1){opacity:1;transform:none;transition-delay:.04s;}
+.mw-stagger.visible>*:nth-child(2){opacity:1;transform:none;transition-delay:.11s;}
+.mw-stagger.visible>*:nth-child(3){opacity:1;transform:none;transition-delay:.18s;}
+.mw-stagger.visible>*:nth-child(4){opacity:1;transform:none;transition-delay:.25s;}
+.mw-stagger.visible>*:nth-child(5){opacity:1;transform:none;transition-delay:.32s;}
+.mw-stagger.visible>*:nth-child(6){opacity:1;transform:none;transition-delay:.39s;}
+.mw-stagger.visible>*:nth-child(n+7){opacity:1;transform:none;transition-delay:.44s;}
+@media(prefers-reduced-motion:reduce){.mw-reveal,.mw-reveal-left,.mw-reveal-right,.mw-stagger>*{opacity:1!important;transform:none!important;transition:none!important;}}
+@keyframes mwfade{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:none;}}
+
+/* ── HEADER ── */
+.nav-link{position:relative;}
+.nav-link:hover{color:#fff!important;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px;}
+.hamburger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:all .25s;}
+.mobile-menu{display:none;position:fixed;top:76px;left:0;right:0;background:rgba(24,15,10,0.98);backdrop-filter:blur(10px);z-index:99;flex-direction:column;padding:10px 24px 26px;gap:2px;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{color:rgba(255,255,255,0.85);padding:14px 4px;border-bottom:1px solid rgba(255,255,255,0.08);font-size:13.5px;letter-spacing:.1em;text-transform:uppercase;}
+
+/* ── HERO SLIDER ── */
+.mw-slider{position:relative;height:94vh;min-height:580px;overflow:hidden;background:var(--wood-dark);}
+.mw-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1s ease;pointer-events:none;}
+.mw-slide.active{opacity:1;pointer-events:auto;}
+.mw-slide::after{content:'';position:absolute;inset:0;background:linear-gradient(95deg,rgba(20,12,7,.86) 0%,rgba(20,12,7,.52) 48%,rgba(20,12,7,.18) 100%);}
+.mw-slide-content{position:absolute;top:0;bottom:0;left:0;display:flex;align-items:center;z-index:2;padding:0 clamp(20px,5vw,72px);max-width:680px;}
+.mw-slide-eyebrow{font-size:12.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:22px;}
+.mw-slide-title{font-family:'Fraunces',serif;font-weight:500;color:#fff;font-size:clamp(2.4rem,5.6vw,4.4rem);line-height:1.05;margin:0;}
+.mw-slide-sub{font-size:clamp(15px,1.2vw,18px);line-height:1.7;color:rgba(255,255,255,0.82);max-width:520px;margin:24px 0 0;font-weight:300;}
+.mw-arrow{position:absolute;top:50%;z-index:3;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);color:#fff;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:20px;transition:all .2s;transform:translateY(-50%);backdrop-filter:blur(6px);}
+.mw-arrow:hover{background:var(--accent);border-color:var(--accent);}
+.mw-prev{left:clamp(14px,3vw,36px);}
+.mw-next{right:clamp(14px,3vw,36px);}
+.mw-dots{position:absolute;bottom:clamp(28px,5vw,48px);left:clamp(20px,5vw,72px);z-index:3;display:flex;gap:9px;align-items:center;}
+.mw-dot{width:26px;height:3px;background:rgba(255,255,255,.32);border-radius:2px;cursor:pointer;transition:all .3s;}
+.mw-dot.active{background:var(--accent);width:46px;}
+
+/* ── CARDS ── */
+.line-card{transition:transform .3s ease,box-shadow .3s ease;cursor:pointer;}
+.line-card:hover{transform:translateY(-6px);box-shadow:0 26px 50px rgba(36,22,16,0.18);}
+.gal-card{transition:transform .25s ease,box-shadow .25s ease;cursor:pointer;}
+.gal-card:hover{transform:translateY(-5px);box-shadow:0 18px 36px rgba(36,22,16,0.14);}
+.gal-card:hover .gal-img{transform:scale(1.06);}
+.gal-img{transition:transform .5s cubic-bezier(.22,1,.36,1);}
+.swatch:hover{transform:translateY(-4px);box-shadow:0 14px 28px rgba(36,22,16,0.14);}
+.swatch{transition:transform .22s,box-shadow .22s;cursor:pointer;}
+
+.chip{transition:all .2s;padding:9px 20px;font-family:'Work Sans',sans-serif;font-size:12.5px;letter-spacing:0.09em;text-transform:uppercase;cursor:pointer;border-radius:20px;white-space:nowrap;}
+.chip-inactive{border:1px solid var(--line);background:#fff;color:var(--muted);font-weight:500;}
+.chip-active{border:1px solid var(--accent);background:var(--accent);color:#fff;font-weight:600;}
+.chip-scroll{overflow-x:auto;display:flex;gap:10px;scrollbar-width:none;-ms-overflow-style:none;padding-bottom:4px;}
+.chip-scroll::-webkit-scrollbar{display:none;}
+
+.adv-item{display:flex;align-items:flex-start;gap:14px;padding:16px 0;border-bottom:1px solid var(--line);font-size:15px;color:#4A3B2C;}
+.adv-item:last-child{border-bottom:none;}
+.adv-dot{flex-shrink:0;width:24px;height:24px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:1px;}
+.adv-dot svg{width:12px;height:12px;fill:none;stroke:#fff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;}
+
+.tab-btn{font-family:'Work Sans',sans-serif;font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;background:none;border:none;cursor:pointer;padding:0 0 16px;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .2s;}
+.tab-btn.active{color:var(--accent-dark);border-bottom:2px solid var(--accent);}
+
+footer a:hover{color:#fff!important;}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="site-header" style="position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px clamp(20px,5vw,56px);background:rgba(24,15,10,0.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);">
+  <a href="#top" style="display:flex;align-items:center;gap:10px;flex-shrink:0;">
+    <img src="media/logo_mw.png" alt="Modul Woods" style="height:42px;object-fit:contain;">
+  </a>
+  <nav style="display:flex;align-items:center;gap:clamp(10px,1.8vw,26px);font-size:12.5px;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;" id="desktop-nav">
+    <a href="#nosotros" class="nav-link" style="color:rgba(255,255,255,0.78);">About</a>
+    <a href="#lineas" class="nav-link" style="color:rgba(255,255,255,0.78);">Product Lines</a>
+    <a href="#coleccion" class="nav-link" style="color:rgba(255,255,255,0.78);">Collections</a>
+    <a href="#acabados" class="nav-link" style="color:rgba(255,255,255,0.78);">Finishes</a>
+    <a href="#contacto" class="nav-link" style="color:rgba(255,255,255,0.78);">Contact</a>
+  </nav>
+  <div style="display:flex;align-items:center;gap:14px;flex-shrink:0;">
+    <a href="#contacto" style="display:none;" id="quote-btn" class="quote-btn-desktop">Get a quote</a>
+    <a href="#contacto" style="background:var(--accent);color:#fff;padding:11px 22px;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;border-radius:var(--radius);" id="quote-desktop">Request a quote</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#nosotros">About</a>
+  <a href="#lineas">Product Lines</a>
+  <a href="#coleccion">Collections</a>
+  <a href="#acabados">Finishes</a>
+  <a href="#contacto">Contact</a>
+</div>
+
+<!-- HERO SLIDER -->
+<section id="top" class="mw-slider">
+  <div class="mw-slide active" style="background-image:url('media/slide_02.png');">
+    <div class="mw-slide-content">
+      <div style="animation:mwfade .9s ease both;">
+        <div class="mw-slide-eyebrow">Modul Woods · Vanity Cabinets</div>
+        <h1 class="mw-slide-title">Premium quality vanity cabinets.</h1>
+        <p class="mw-slide-sub">We specialize in vanity cabinets tailored to your design needs — size, drawers, wall-mount or free-standing — complete with the vanity top of your choice.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:16px;margin-top:36px;">
+          <a href="#coleccion" style="background:var(--accent);color:#fff;padding:15px 32px;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;font-weight:600;border-radius:var(--radius);">See our products</a>
+          <a href="#contacto" style="border:1px solid rgba(255,255,255,0.5);color:#fff;padding:15px 32px;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;font-weight:500;border-radius:var(--radius);">Request a quote</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mw-slide" style="background-image:url('media/slide_13.png');">
+    <div class="mw-slide-content">
+      <div>
+        <div class="mw-slide-eyebrow">Hospitality Line</div>
+        <h1 class="mw-slide-title">Built for hotels, motels &amp; multi-family.</h1>
+        <p class="mw-slide-sub">From Stilo to Rome, our hospitality collections are engineered for durability across homes, hotels, motels, assisted living and multi-family properties.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:16px;margin-top:36px;">
+          <a href="#coleccion" style="background:var(--accent);color:#fff;padding:15px 32px;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;font-weight:600;border-radius:var(--radius);">See collections</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mw-slide" style="background-image:url('media/slide_14.png');">
+    <div class="mw-slide-content">
+      <div>
+        <div class="mw-slide-eyebrow">Premium Line</div>
+        <h1 class="mw-slide-title">Refined design, custom sizing.</h1>
+        <p class="mw-slide-sub">Eleven premium collections — Aspen, Athena, Monaco, Royal and more — paired with quartz, cultured marble or cultured granite vanity tops.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:16px;margin-top:36px;">
+          <a href="#coleccion" style="background:var(--accent);color:#fff;padding:15px 32px;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;font-weight:600;border-radius:var(--radius);">See collections</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mw-slide" style="background-image:url('media/bg_slide_01.jpg');">
+    <div class="mw-slide-content">
+      <div>
+        <div class="mw-slide-eyebrow">Economic Line</div>
+        <h1 class="mw-slide-title">Style that fits every budget.</h1>
+        <p class="mw-slide-sub">Gretta, Charleston, Denmark, Arizona and Berlin bring the Modul Woods look to every project without compromise.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:16px;margin-top:36px;">
+          <a href="#coleccion" style="background:var(--accent);color:#fff;padding:15px 32px;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;font-weight:600;border-radius:var(--radius);">See collections</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="mw-arrow mw-prev" onclick="mwSlide(-1)" aria-label="Previous">&#8592;</button>
+  <button class="mw-arrow mw-next" onclick="mwSlide(1)" aria-label="Next">&#8594;</button>
+  <div class="mw-dots" id="mw-dots"></div>
+</section>
+
+<!-- STATS -->
+<section style="background:var(--wood-dark);color:#fff;padding:38px clamp(20px,5vw,56px);">
+  <div style="max-width:1280px;margin:0 auto;display:flex;flex-wrap:wrap;gap:28px 56px;justify-content:space-between;">
+    <div style="min-width:130px;"><div style="font-family:'Fraunces',serif;font-size:clamp(1.9rem,2.8vw,2.6rem);line-height:1;">2004</div><div style="font-size:11.5px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-top:8px;">Modular Vanity Tops founded</div></div>
+    <div style="min-width:130px;"><div style="font-family:'Fraunces',serif;font-size:clamp(1.9rem,2.8vw,2.6rem);line-height:1;">2018</div><div style="font-size:11.5px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-top:8px;">Modul Woods launched</div></div>
+    <div style="min-width:130px;"><div style="font-family:'Fraunces',serif;font-size:clamp(1.9rem,2.8vw,2.6rem);line-height:1;">22</div><div style="font-size:11.5px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-top:8px;">Cabinet collections</div></div>
+    <div style="min-width:130px;"><div style="font-family:'Fraunces',serif;font-size:clamp(1.9rem,2.8vw,2.6rem);line-height:1;">3</div><div style="font-size:11.5px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-top:8px;">Vanity top materials</div></div>
+    <div style="min-width:130px;"><div style="font-family:'Fraunces',serif;font-size:clamp(1.9rem,2.8vw,2.6rem);line-height:1;">Juárez, N.L.</div><div style="font-size:11.5px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-top:8px;">Manufacturing origin</div></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="nosotros" style="padding:clamp(64px,9vw,120px) clamp(20px,5vw,56px);">
+  <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:clamp(36px,5vw,76px);align-items:center;">
+    <div class="mw-reveal-left">
+      <div style="font-size:13px;letter-spacing:0.26em;text-transform:uppercase;color:var(--accent-dark);font-weight:600;">About us</div>
+      <h2 style="font-family:'Fraunces',serif;font-weight:500;font-size:clamp(2rem,4vw,3rem);line-height:1.1;margin:16px 0 0;">The beginning of Modul Woods.</h2>
+      <p style="font-size:clamp(15px,1.1vw,17px);line-height:1.8;color:#5C4A38;margin:22px 0 0;font-weight:300;">Modular Vanity Tops started in 2004 exclusively producing cultured marble vanity tops. After expanding into additional vanity top styles and materials, in 2018 Modul Woods launched as our premium vanity cabinet facility — created to perfect and complement our existing catalog.</p>
+      <p style="font-size:clamp(15px,1.1vw,17px);line-height:1.8;color:#5C4A38;margin:16px 0 0;font-weight:300;">Our vanity cabinets are built for a wide range of clients within the residential, hospitality and multi-family channels. The synergy between vanity tops and cabinets lets us adapt to the needs of every project — from single homes to hotels, motels and assisted-living communities.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:14px 40px;margin:30px 0 0;">
+        <div><div style="font-family:'Fraunces',serif;font-size:1.35rem;">Juárez, Nuevo León</div><div style="font-size:11.5px;letter-spacing:0.13em;text-transform:uppercase;color:var(--muted);margin-top:4px;">Corporate office</div></div>
+        <div><div style="font-family:'Fraunces',serif;font-size:1.35rem;">Residential · Hospitality · Multi-family</div><div style="font-size:11.5px;letter-spacing:0.13em;text-transform:uppercase;color:var(--muted);margin-top:4px;">Channels served</div></div>
+      </div>
+    </div>
+    <div class="mw-reveal-right" style="aspect-ratio:4/5;border-radius:var(--radius);overflow:hidden;box-shadow:0 30px 60px rgba(36,22,16,0.16);">
+      <img src="media/img_about-us.png" alt="Modul Woods manufacturing" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT LINES -->
+<section id="lineas" style="padding:clamp(64px,9vw,110px) clamp(20px,5vw,56px);background:#FFFFFF;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div style="max-width:1280px;margin:0 auto;">
+    <div class="mw-reveal" style="max-width:640px;">
+      <div style="font-size:13px;letter-spacing:0.26em;text-transform:uppercase;color:var(--accent-dark);font-weight:600;">Our products</div>
+      <h2 style="font-family:'Fraunces',serif;font-weight:500;font-size:clamp(2rem,4vw,3rem);line-height:1.1;margin:16px 0 0;">Bathroom vanity cabinets, three ways.</h2>
+      <p style="font-size:clamp(15px,1.1vw,17px);line-height:1.75;color:#5C4A38;margin:16px 0 0;font-weight:300;">Every project falls into one of our three product lines — explore each below, then browse the full collection gallery.</p>
+    </div>
+    <div class="mw-stagger" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:26px;margin-top:48px;">
+      <a href="#coleccion" onclick="mwFilterLine('Hospitality')" class="line-card" style="display:block;background:var(--cream);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;">
+        <div style="aspect-ratio:3/2;overflow:hidden;"><img src="media/Hospitality-950x450-1.jpg" alt="Hospitality" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div style="padding:24px 26px 28px;display:flex;justify-content:space-between;align-items:center;gap:12px;">
+          <div><div style="font-family:'Fraunces',serif;font-size:1.5rem;">Hospitality</div><div style="font-size:13px;color:var(--muted);margin-top:6px;font-weight:300;">Hotels, motels &amp; multi-family properties.</div></div>
+          <span style="color:var(--accent-dark);font-size:18px;">→</span>
+        </div>
+      </a>
+      <a href="#coleccion" onclick="mwFilterLine('Premium')" class="line-card" style="display:block;background:var(--cream);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;">
+        <div style="aspect-ratio:3/2;overflow:hidden;"><img src="media/Premium-950x450-1.jpg" alt="Premium" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div style="padding:24px 26px 28px;display:flex;justify-content:space-between;align-items:center;gap:12px;">
+          <div><div style="font-family:'Fraunces',serif;font-size:1.5rem;">Premium</div><div style="font-size:13px;color:var(--muted);margin-top:6px;font-weight:300;">Refined finishes for residential design.</div></div>
+          <span style="color:var(--accent-dark);font-size:18px;">→</span>
+        </div>
+      </a>
+      <a href="#coleccion" onclick="mwFilterLine('Economic Line')" class="line-card" style="display:block;background:var(--cream);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;">
+        <div style="aspect-ratio:3/2;overflow:hidden;"><img src="media/Economic-950x450-1.jpg" alt="Economic Line" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div style="padding:24px 26px 28px;display:flex;justify-content:space-between;align-items:center;gap:12px;">
+          <div><div style="font-family:'Fraunces',serif;font-size:1.5rem;">Economic Line</div><div style="font-size:13px;color:var(--muted);margin-top:6px;font-weight:300;">Great style, every budget.</div></div>
+          <span style="color:var(--accent-dark);font-size:18px;">→</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- COLLECTIONS GALLERY -->
+<section id="coleccion" style="padding:clamp(64px,9vw,110px) clamp(20px,5vw,56px);">
+  <div style="max-width:1280px;margin:0 auto;">
+    <div class="mw-reveal" style="max-width:640px;">
+      <div style="font-size:13px;letter-spacing:0.26em;text-transform:uppercase;color:var(--accent-dark);font-weight:600;">Collections</div>
+      <h2 style="font-family:'Fraunces',serif;font-weight:500;font-size:clamp(2rem,4vw,3rem);line-height:1.1;margin:16px 0 0;">22 collections to choose from.</h2>
+      <p style="font-size:clamp(15px,1.1vw,17px);line-height:1.75;color:#5C4A38;margin:16px 0 0;font-weight:300;">Filter by product line to find the collection that fits your project.</p>
+    </div>
+    <div class="chip-scroll" id="line-filters" style="margin:38px 0 30px;"></div>
+    <div id="gallery-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:24px;"></div>
+  </div>
+</section>
+
+<!-- WHY MODUL WOODS -->
+<section style="padding:clamp(64px,9vw,110px) clamp(20px,5vw,56px);background:#FFFFFF;border-top:1px solid var(--line);">
+  <div style="max-width:1280px;margin:0 auto;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(36px,5vw,66px);">
+      <div class="mw-reveal-left">
+        <div style="font-size:13px;letter-spacing:0.26em;text-transform:uppercase;color:var(--accent-dark);font-weight:600;">Why Modul Woods</div>
+        <h2 style="font-family:'Fraunces',serif;font-weight:500;font-size:clamp(1.9rem,4vw,2.8rem);line-height:1.1;margin:16px 0 0;">Every cabinet, made to order.</h2>
+        <p style="font-size:clamp(15px,1.1vw,17px);line-height:1.75;color:#5C4A38;margin:18px 0 0;font-weight:300;">Our cabinets can be tailored to your specifications — size, number of drawers, wall-mount or free-standing — with the ability to include the vanity top of your choice. Vanity tops come in cultured marble, cultured granite, and quartz.</p>
+        <div style="margin-top:26px;border-radius:var(--radius);overflow:hidden;aspect-ratio:16/9;">
+          <img src="media/img_salisbury_in_02.png" alt="Modul Woods bathroom" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+      </div>
+      <div>
+        <div class="adv-item"><div class="adv-dot"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div><span>Soft-close hinges and drawers on every cabinet</span></div>
+        <div class="adv-item"><div class="adv-dot"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div><span>Painted MDF, laminated MDF or thermofoil construction</span></div>
+        <div class="adv-item"><div class="adv-dot"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div><span>Wall-mounted or free-standing configurations</span></div>
+        <div class="adv-item"><div class="adv-dot"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div><span>Vanity tops in quartz, cultured marble or cultured granite</span></div>
+        <div class="adv-item"><div class="adv-dot"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div><span>Custom sizing for center and double-sink configurations</span></div>
+        <div class="adv-item"><div class="adv-dot"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div><span>Engineered for residential, hospitality &amp; multi-family use</span></div>
+        <div class="adv-item"><div class="adv-dot"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div><span>The complete vanity combo — cabinet and top from one source</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINISHES -->
+<section id="acabados" style="padding:clamp(64px,9vw,110px) clamp(20px,5vw,56px);background:var(--cream);">
+  <div style="max-width:1280px;margin:0 auto;">
+    <div class="mw-reveal" style="max-width:680px;margin-bottom:46px;">
+      <div style="font-size:13px;letter-spacing:0.26em;text-transform:uppercase;color:var(--accent-dark);font-weight:600;">Finishes &amp; materials</div>
+      <h2 style="font-family:'Fraunces',serif;font-weight:500;font-size:clamp(2rem,4vw,3rem);line-height:1.1;margin:16px 0 0;">Cabinet finishes and vanity tops.</h2>
+    </div>
+    <div style="display:flex;gap:36px;border-bottom:2px solid var(--line);margin-bottom:44px;flex-wrap:wrap;">
+      <button class="tab-btn active" id="tab-painted" onclick="mwTab('painted')">Painted</button>
+      <button class="tab-btn" id="tab-laminated" onclick="mwTab('laminated')">Laminated</button>
+      <button class="tab-btn" id="tab-thermofoil" onclick="mwTab('thermofoil')">Thermofoil</button>
+      <button class="tab-btn" id="tab-tops" onclick="mwTab('tops')">Vanity Tops</button>
+    </div>
+    <div id="panel-painted" class="finish-panel" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:20px;"></div>
+    <div id="panel-laminated" class="finish-panel" style="display:none;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:20px;"></div>
+    <div id="panel-thermofoil" class="finish-panel" style="display:none;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:20px;"></div>
+    <div id="panel-tops" class="finish-panel" style="display:none;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:20px;"></div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section style="position:relative;padding:clamp(64px,9vw,110px) clamp(20px,5vw,56px);background-image:linear-gradient(rgba(24,15,10,0.84),rgba(24,15,10,0.84)),url('media/bgparallax.png');background-size:cover;background-position:center;color:#fff;text-align:center;">
+  <div class="mw-reveal" style="max-width:680px;margin:0 auto;">
+    <div style="font-size:13px;letter-spacing:0.26em;text-transform:uppercase;color:rgba(255,255,255,0.6);font-weight:600;">Customer satisfaction</div>
+    <h2 style="font-family:'Fraunces',serif;font-weight:500;font-size:clamp(2rem,4vw,3rem);line-height:1.1;margin:16px 0 0;">We are committed to customer satisfaction.</h2>
+    <p style="font-size:clamp(15px,1.1vw,17px);line-height:1.7;color:rgba(255,255,255,0.76);margin:18px 0 0;font-weight:300;">Our sales team can help you with the request for samples and any question about our vanity cabinet collections.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-top:34px;">
+      <a href="#contacto" style="background:var(--accent);color:#fff;padding:15px 32px;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;font-weight:600;border-radius:var(--radius);">Contact us</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contacto" style="padding:clamp(64px,9vw,110px) clamp(20px,5vw,56px);">
+  <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(40px,5vw,70px);align-items:start;">
+    <div class="mw-reveal-left">
+      <div style="font-size:13px;letter-spacing:0.26em;text-transform:uppercase;color:var(--accent-dark);font-weight:600;">Contact</div>
+      <h2 style="font-family:'Fraunces',serif;font-weight:500;font-size:clamp(2rem,4vw,3rem);line-height:1.1;margin:16px 0 0;">Send us a message.</h2>
+      <p style="font-size:clamp(15px,1.1vw,17px);line-height:1.75;color:#5C4A38;margin:18px 0 0;font-weight:300;max-width:420px;">Got a question, query, problem or something you need to tell us? Our team is ready to help.</p>
+      <div style="margin-top:34px;display:flex;flex-direction:column;gap:22px;">
+        <div>
+          <div style="font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);">Corporate office</div>
+          <div style="font-family:'Fraunces',serif;font-size:1.05rem;margin-top:6px;">Carretera San Roque #200 Int. 18<br>Colonia Los Reyes, Juárez, Nuevo León, México CP. 67277</div>
+        </div>
+        <div>
+          <div style="font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);">Toll free</div>
+          <div style="font-size:15px;margin-top:6px;font-weight:400;line-height:1.7;">
+            <a href="tel:+18665449477" style="color:var(--accent-dark);">866 544 9477</a><br>
+            <a href="tel:+18552193751" style="color:var(--accent-dark);">855 219 3751</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);">VP Sales — Ignacio Fuentes</div>
+          <div style="font-size:15px;margin-top:6px;font-weight:400;line-height:1.7;">
+            956 212 5476 · <a href="mailto:ignaciof@modular-tops.com" style="color:var(--accent-dark);">ignaciof@modular-tops.com</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);">Key Accounts — Andrea Peña</div>
+          <div style="font-size:15px;margin-top:6px;font-weight:400;line-height:1.7;">
+            832 426 2576 · <a href="mailto:andrea.pena@modular-tops.com" style="color:var(--accent-dark);">andrea.pena@modular-tops.com</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);">Customer service</div>
+          <div style="font-size:15px;margin-top:6px;font-weight:400;">
+            <a href="mailto:sales1@modular-tops.com" style="color:var(--accent-dark);">sales1@modular-tops.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mw-reveal-right" style="background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:clamp(28px,4vw,44px);">
+      <form onsubmit="return mwSubmitForm(event)">
+        <div style="margin-bottom:18px;">
+          <label style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:8px;">Full name</label>
+          <input type="text" required style="width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:var(--radius);font-size:14px;background:var(--cream);">
+        </div>
+        <div style="margin-bottom:18px;">
+          <label style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:8px;">E-mail</label>
+          <input type="email" required style="width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:var(--radius);font-size:14px;background:var(--cream);">
+        </div>
+        <div style="margin-bottom:18px;">
+          <label style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:8px;">Phone</label>
+          <input type="tel" style="width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:var(--radius);font-size:14px;background:var(--cream);">
+        </div>
+        <div style="margin-bottom:22px;">
+          <label style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:8px;">Message</label>
+          <textarea rows="4" style="width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:var(--radius);font-size:14px;background:var(--cream);resize:vertical;"></textarea>
+        </div>
+        <button type="submit" style="width:100%;background:var(--accent);color:#fff;border:none;padding:15px 20px;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;font-weight:600;border-radius:var(--radius);cursor:pointer;">Send message</button>
+        <div id="form-note" style="font-size:12.5px;color:var(--muted);margin-top:12px;text-align:center;"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:var(--wood-dark);color:rgba(255,255,255,0.65);padding:48px clamp(20px,5vw,56px) 28px;">
+  <div style="max-width:1280px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:30px;">
+    <div style="max-width:340px;">
+      <img src="media/logo_mw.png" alt="Modul Woods" style="height:38px;object-fit:contain;margin-bottom:16px;filter:brightness(0) invert(1);opacity:0.9;">
+      <p style="font-size:13.5px;line-height:1.7;color:rgba(255,255,255,0.5);">Premium quality vanity cabinets for residential, hospitality and multi-family projects. Manufactured in Juárez, Nuevo León, México.</p>
+    </div>
+    <div style="display:flex;gap:clamp(30px,6vw,80px);flex-wrap:wrap;">
+      <div>
+        <div style="font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:14px;">Site</div>
+        <div style="display:flex;flex-direction:column;gap:10px;font-size:13.5px;">
+          <a href="#nosotros" style="color:rgba(255,255,255,0.65);">About</a>
+          <a href="#lineas" style="color:rgba(255,255,255,0.65);">Product lines</a>
+          <a href="#coleccion" style="color:rgba(255,255,255,0.65);">Collections</a>
+          <a href="#acabados" style="color:rgba(255,255,255,0.65);">Finishes</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:14px;">Contact</div>
+        <div style="display:flex;flex-direction:column;gap:10px;font-size:13.5px;">
+          <a href="tel:+18665449477" style="color:rgba(255,255,255,0.65);">866 544 9477</a>
+          <a href="mailto:sales1@modular-tops.com" style="color:rgba(255,255,255,0.65);">sales1@modular-tops.com</a>
+          <span>Juárez, Nuevo León, México</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="max-width:1280px;margin:34px auto 0;border-top:1px solid rgba(255,255,255,0.1);padding-top:20px;font-size:12px;color:rgba(255,255,255,0.35);text-align:center;">
+    © 2026 Modul Woods. Internal reference site — not affiliated with any external hosting.
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" style="display:none;position:fixed;inset:0;z-index:200;background:rgba(20,12,7,0.92);align-items:center;justify-content:center;padding:40px;cursor:zoom-out;" onclick="mwCloseLightbox()">
+  <img id="lightbox-img" src="" alt="" style="max-width:90vw;max-height:85vh;object-fit:contain;border-radius:4px;box-shadow:0 30px 70px rgba(0,0,0,0.5);">
+</div>
+
+<script>
+/* ===== DATA ===== */
+var COLLECTIONS = [
+  {name:'Gretta', line:'Economic Line', img:'media/Gretta-Frontal.png'},
+  {name:'Charleston', line:'Economic Line', img:'media/Charleston-RT-Frontal.png'},
+  {name:'Denmark', line:'Economic Line', img:'media/Denmark-Espresso-Frontal.png'},
+  {name:'Arizona', line:'Economic Line', img:'media/Arizona-Blanco-Frontal.png'},
+  {name:'Berlin', line:'Economic Line', img:'media/Berlin-Blanco-Frontal-2.png'},
+  {name:'Aspen', line:'Premium', img:'media/Aspen-Frontal.png'},
+  {name:'Athena', line:'Premium', img:'media/Athena-Espresso-Frontal.png'},
+  {name:'Sorrento', line:'Premium', img:'media/Sorrento-19x25-Gris-Frontal.png'},
+  {name:'Monaco', line:'Premium', img:'media/Monaco-Blanco-Frontal.png'},
+  {name:'London', line:'Premium', img:'media/London-21x36-Gris-Frontal.png'},
+  {name:'Trento', line:'Premium', img:'media/Trento-SH-Frontal.png'},
+  {name:'Salisbury', line:'Premium', img:'media/Salisbury-21x36-Gris-Frontal.png'},
+  {name:'Royal', line:'Premium', img:'media/Royal-21x36-Gris-Frontal.png'},
+  {name:'NewPort', line:'Premium', img:'media/Newport-Gris-Frontal.png'},
+  {name:'Napoli', line:'Premium', img:'media/Napoli-Frontal.png'},
+  {name:'Udine', line:'Premium', img:'media/Udine-21x48-Espresso-Frontal.png'},
+  {name:'Stilo', line:'Hospitality', img:'media/Stilo-La-Quinta-Frontal.png'},
+  {name:'Charlotte', line:'Hospitality', img:'media/ModulWoods_hospitality_0011_Hampton-In-Charlotte-Frontal.jpg'},
+  {name:'Montana', line:'Hospitality', img:'media/ModulWoods_hospitality_Hiex-Montana-Frontal.jpg'},
+  {name:'Sacramento', line:'Hospitality', img:'media/ModulWoods_hospitality_Confort-Inn-Sacramento-Frontal.jpg'},
+  {name:'Tebas', line:'Hospitality', img:'media/ModulWoods_hospitality_Courtyard-Marriot-Tebas-Frontal.jpg'},
+  {name:'Rome', line:'Hospitality', img:'media/Rome-Frontal.png'}
+];
+var LINES = ['All','Hospitality','Premium','Economic Line'];
+
+var FINISHES = {
+  painted: [
+    {name:'White', img:'media/White.jpg'},
+    {name:'Gray', img:'media/Gray.jpg'},
+    {name:'Cobblestone', img:'media/Cobblestone.jpg'},
+    {name:'Navy Blue', img:'media/Navy-blue.jpg'},
+    {name:'Espresso', img:'media/Espresso.jpg'}
+  ],
+  laminated: [
+    {name:'Mangalore Mango', img:'media/Mangalore-Mango.jpg'},
+    {name:'Walnut Heights', img:'media/Walnut-Heights.jpg'},
+    {name:'Zanzibar', img:'media/Zanzibar.jpg'},
+    {name:'Ebano Indi', img:'media/Ebano-Indi.jpg'},
+    {name:'Cedra Escandinavo', img:'media/Cedra-Escandinavo.jpg'},
+    {name:'Fresno Bruma', img:'media/Fresno-Bruma.jpg'}
+  ],
+  thermofoil: [
+    {name:'Veralinga Alaska', img:'media/Veralinga-Alaska.jpg'},
+    {name:'Amber Oak', img:'media/Amber-Oak.jpg'},
+    {name:'HG Billbergia', img:'media/HG-Billbergia.jpg'},
+    {name:'Sanatana Oak', img:'media/Sanatana-Oak.jpg'}
+  ],
+  tops: [
+    {name:'Calacatta Statuario', img:'media/Calacatta-Statuario.jpg'},
+    {name:'Calacatta Vienna', img:'media/Calacatta-Vienna.jpg'},
+    {name:'Bianco Gray', img:'media/Bianco-Gray.jpg'},
+    {name:'Bianco Gold', img:'media/Bianco-Gold.jpg'},
+    {name:'Galaxy Gray', img:'media/Galaxy-Gray.jpg'},
+    {name:'Galaxy White', img:'media/Galaxy-White.jpg'},
+    {name:'Pure White', img:'media/Pure-White.jpg'},
+    {name:'Snow White', img:'media/Snow-White.jpg'}
+  ]
+};
+
+/* ===== GALLERY RENDER ===== */
+var currentLine = 'All';
+function renderChips(){
+  var wrap = document.getElementById('line-filters');
+  wrap.innerHTML = '';
+  LINES.forEach(function(l){
+    var chip = document.createElement('div');
+    chip.className = 'chip ' + (l===currentLine?'chip-active':'chip-inactive');
+    chip.textContent = l;
+    chip.onclick = function(){ currentLine = l; renderChips(); renderGallery(); };
+    wrap.appendChild(chip);
+  });
+}
+function renderGallery(){
+  var grid = document.getElementById('gallery-grid');
+  grid.innerHTML = '';
+  var list = COLLECTIONS.filter(function(c){ return currentLine==='All' || c.line===currentLine; });
+  list.forEach(function(c){
+    var card = document.createElement('div');
+    card.className = 'gal-card mw-reveal';
+    card.style.cssText = 'background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;';
+    card.innerHTML =
+      '<div style="aspect-ratio:4/3;overflow:hidden;background:#F1E9DC;display:flex;align-items:center;justify-content:center;">'+
+        '<img class="gal-img" src="'+c.img+'" alt="'+c.name+'" style="width:100%;height:100%;object-fit:cover;" onclick="mwOpenLightbox(event,\''+c.img+'\',\''+c.name+'\')">'+
+      '</div>'+
+      '<div style="padding:16px 18px;display:flex;justify-content:space-between;align-items:center;">'+
+        '<div><div style="font-family:\'Fraunces\',serif;font-size:1.15rem;">'+c.name+'</div><div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:3px;">'+c.line+'</div></div>'+
+      '</div>';
+    grid.appendChild(card);
+    requestAnimationFrame(function(){ observeEl(card); });
+  });
+}
+function mwFilterLine(l){
+  currentLine = l;
+  renderChips();
+  renderGallery();
+}
+
+/* ===== FINISHES RENDER ===== */
+function renderFinishes(){
+  Object.keys(FINISHES).forEach(function(key){
+    var panel = document.getElementById('panel-'+key);
+    panel.innerHTML = '';
+    FINISHES[key].forEach(function(f){
+      var sw = document.createElement('div');
+      sw.className = 'swatch mw-reveal';
+      sw.onclick = function(){ mwOpenLightbox(null, f.img, f.name); };
+      sw.innerHTML =
+        '<div style="aspect-ratio:1;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);"><img src="'+f.img+'" alt="'+f.name+'" style="width:100%;height:100%;object-fit:cover;"></div>'+
+        '<div style="text-align:center;font-size:12.5px;margin-top:9px;color:#4A3B2C;">'+f.name+'</div>';
+      panel.appendChild(sw);
+      requestAnimationFrame(function(){ observeEl(sw); });
+    });
+  });
+}
+function mwTab(key){
+  ['painted','laminated','thermofoil','tops'].forEach(function(k){
+    document.getElementById('panel-'+k).style.display = (k===key?'grid':'none');
+    document.getElementById('tab-'+k).classList.toggle('active', k===key);
+  });
+}
+
+/* ===== LIGHTBOX ===== */
+function mwOpenLightbox(ev, src, alt){
+  if(ev) ev.stopPropagation();
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox-img').alt = alt;
+  document.getElementById('lightbox').style.display = 'flex';
+}
+function mwCloseLightbox(){ document.getElementById('lightbox').style.display = 'none'; }
+
+/* ===== HERO SLIDER ===== */
+var mwSlides = document.querySelectorAll('.mw-slide');
+var mwIndex = 0, mwTimer;
+function mwRenderDots(){
+  var wrap = document.getElementById('mw-dots');
+  wrap.innerHTML = '';
+  mwSlides.forEach(function(_, i){
+    var dot = document.createElement('div');
+    dot.className = 'mw-dot' + (i===mwIndex?' active':'');
+    dot.onclick = function(){ mwGoTo(i); };
+    wrap.appendChild(dot);
+  });
+}
+function mwGoTo(i){
+  mwSlides[mwIndex].classList.remove('active');
+  mwIndex = (i + mwSlides.length) % mwSlides.length;
+  mwSlides[mwIndex].classList.add('active');
+  mwRenderDots();
+  mwResetTimer();
+}
+function mwSlide(dir){ mwGoTo(mwIndex + dir); }
+function mwResetTimer(){
+  clearInterval(mwTimer);
+  mwTimer = setInterval(function(){ mwGoTo(mwIndex+1); }, 6000);
+}
+mwRenderDots();
+mwResetTimer();
+
+/* ===== SCROLL REVEAL ===== */
+var io = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
+  });
+}, {threshold:0.12});
+function observeEl(el){ io.observe(el); }
+document.querySelectorAll('.mw-reveal, .mw-reveal-left, .mw-reveal-right, .mw-stagger').forEach(function(el){ io.observe(el); });
+
+/* ===== MOBILE MENU ===== */
+var hamburger = document.getElementById('hamburger');
+var mobileMenu = document.getElementById('mobile-menu');
+hamburger.addEventListener('click', function(){
+  mobileMenu.classList.toggle('open');
+});
+mobileMenu.querySelectorAll('a').forEach(function(a){
+  a.addEventListener('click', function(){ mobileMenu.classList.remove('open'); });
+});
+
+/* ===== CONTACT FORM (static demo) ===== */
+function mwSubmitForm(e){
+  e.preventDefault();
+  document.getElementById('form-note').textContent = 'Thank you — this is a static preview page, please reach us directly by phone or email above.';
+  return false;
+}
+
+/* ===== INIT ===== */
+renderChips();
+renderGallery();
+renderFinishes();
+</script>
+</body>
+</html>
