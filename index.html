@@ -101,7 +101,7 @@ footer a:hover{color:#fff!important;}
 .pd-crumb a:hover{text-decoration:underline;}
 .pd-nav-arrow{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--wood-dark);font-size:16px;transition:all .2s;flex-shrink:0;}
 .pd-nav-arrow:hover{background:var(--accent);border-color:var(--accent);color:#fff;}
-.pd-main-img-wrap{position:relative;aspect-ratio:4/3;border-radius:var(--radius);overflow:hidden;background:#F1E9DC;}
+.pd-main-img-wrap{position:relative;isolation:isolate;aspect-ratio:4/3;border-radius:var(--radius);overflow:hidden;background:#F1E9DC;}
 .pd-main-img-wrap img{width:100%;height:100%;object-fit:cover;}
 .pd-gal-arrow{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.85);border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:17px;color:var(--wood-dark);transition:all .2s;}
 .pd-gal-arrow:hover{background:#fff;}
@@ -680,7 +680,7 @@ function tryColorPreview(f){
   var hex = PAINT_HEX[f.name];
   if(!hex) return false;
   overlay.style.background = hex;
-  overlay.style.opacity = '0.88';
+  overlay.style.opacity = '1';
   note.style.display = 'block';
   return true;
 }
