@@ -300,9 +300,11 @@ footer a:hover{color:#fff!important;}
       <div>
         <div class="pd-main-img-wrap">
           <img id="pd-main-img" src="" alt="">
+          <div id="pd-color-overlay" style="position:absolute;inset:0;pointer-events:none;mix-blend-mode:color;opacity:0;transition:opacity .2s;"></div>
           <button class="pd-gal-arrow pd-gal-prev" id="pd-img-prev" aria-label="Previous image">&#8592;</button>
           <button class="pd-gal-arrow pd-gal-next" id="pd-img-next" aria-label="Next image">&#8594;</button>
         </div>
+        <div id="pd-color-note" style="display:none;font-size:11.5px;color:var(--muted);margin-top:8px;font-style:italic;">Simulated color preview — actual finish may vary.</div>
         <div id="pd-thumbs" style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px;"></div>
       </div>
       <div>
@@ -523,6 +525,8 @@ var LINE_ORDER = {
 var LINE_KEY_TO_NAME = {hospitality:'Hospitality', premium:'Premium', economic:'Economic Line'};
 var LINE_NAME_TO_KEY = {'Hospitality':'hospitality', 'Premium':'premium', 'Economic Line':'economic'};
 
+var PAINT_HEX = {'White':'#F2F1ED','Gray':'#B7B9B7','Cobblestone':'#DAD0B7','Navy Blue':'#1C3B54','Espresso':'#1E1712'};
+
 var FINISHES = {
   painted: [
     {name:'White', img:'media/White.jpg'},
@@ -656,12 +660,35 @@ function renderFinishes(){
 function buildSwatch(f){
   var sw = document.createElement('div');
   sw.className = 'swatch mw-reveal';
-  sw.onclick = function(){ mwOpenLightbox(null, f.img, f.name); };
+  sw.onclick = function(){
+    var applied = tryColorPreview(f);
+    if(!applied) mwOpenLightbox(null, f.img, f.name);
+  };
   sw.innerHTML =
     '<div style="aspect-ratio:1;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);"><img src="'+f.img+'" alt="'+f.name+'" style="width:100%;height:100%;object-fit:cover;"></div>'+
     '<div style="text-align:center;font-size:12.5px;margin-top:9px;color:#4A3B2C;">'+f.name+'</div>';
   requestAnimationFrame(function(){ observeEl(sw); });
   return sw;
+}
+// If a "Painted" cabinet color is clicked while viewing a product detail page,
+// tint the main product photo instead of opening the lightbox (simulated preview only —
+// we don't have real per-color photography, laminated/thermofoil textures are excluded).
+function tryColorPreview(f){
+  var overlay = document.getElementById('pd-color-overlay');
+  var note = document.getElementById('pd-color-note');
+  if(!overlay || document.getElementById('view-product').style.display==='none') return false;
+  var hex = PAINT_HEX[f.name];
+  if(!hex) return false;
+  overlay.style.background = hex;
+  overlay.style.opacity = '0.88';
+  note.style.display = 'block';
+  return true;
+}
+function resetColorPreview(){
+  var overlay = document.getElementById('pd-color-overlay');
+  var note = document.getElementById('pd-color-note');
+  if(overlay){ overlay.style.opacity = '0'; }
+  if(note){ note.style.display = 'none'; }
 }
 function mwTab(key){
   ['painted','laminated','thermofoil','tops'].forEach(function(k){
@@ -689,6 +716,7 @@ function findCollectionBySlug(slug){
   return null;
 }
 function renderProduct(slug){
+  resetColorPreview();
   var c = findCollectionBySlug(slug);
   if(!c){ location.hash = '#/collections'; return; }
   pdState.product = c;
