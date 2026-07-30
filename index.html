@@ -346,24 +346,24 @@ footer a:hover{color:#fff!important;}
       </div>
     </div>
     <div class="mw-reveal-right" style="background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:clamp(28px,4vw,44px);">
-      <form onsubmit="return mwSubmitForm(event)">
+      <form id="mw-form" action="https://formspree.io/f/xbdnejky" method="POST">
         <div style="margin-bottom:18px;">
           <label style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:8px;">Full name</label>
-          <input type="text" required style="width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:var(--radius);font-size:14px;background:var(--cream);">
+          <input type="text" name="name" required style="width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:var(--radius);font-size:14px;background:var(--cream);">
         </div>
         <div style="margin-bottom:18px;">
           <label style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:8px;">E-mail</label>
-          <input type="email" required style="width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:var(--radius);font-size:14px;background:var(--cream);">
+          <input type="email" name="email" required style="width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:var(--radius);font-size:14px;background:var(--cream);">
         </div>
         <div style="margin-bottom:18px;">
           <label style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:8px;">Phone</label>
-          <input type="tel" style="width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:var(--radius);font-size:14px;background:var(--cream);">
+          <input type="tel" name="phone" style="width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:var(--radius);font-size:14px;background:var(--cream);">
         </div>
         <div style="margin-bottom:22px;">
           <label style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:8px;">Message</label>
-          <textarea rows="4" style="width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:var(--radius);font-size:14px;background:var(--cream);resize:vertical;"></textarea>
+          <textarea rows="4" name="message" style="width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:var(--radius);font-size:14px;background:var(--cream);resize:vertical;"></textarea>
         </div>
-        <button type="submit" style="width:100%;background:var(--accent);color:#fff;border:none;padding:15px 20px;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;font-weight:600;border-radius:var(--radius);cursor:pointer;">Send message</button>
+        <button type="submit" id="mw-form-btn" style="width:100%;background:var(--accent);color:#fff;border:none;padding:15px 20px;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;font-weight:600;border-radius:var(--radius);cursor:pointer;">Send message</button>
         <div id="form-note" style="font-size:12.5px;color:var(--muted);margin-top:12px;text-align:center;"></div>
       </form>
     </div>
@@ -588,12 +588,31 @@ mobileMenu.querySelectorAll('a').forEach(function(a){
   a.addEventListener('click', function(){ mobileMenu.classList.remove('open'); });
 });
 
-/* ===== CONTACT FORM (static demo) ===== */
-function mwSubmitForm(e){
-  e.preventDefault();
-  document.getElementById('form-note').textContent = 'Thank you — this is a static preview page, please reach us directly by phone or email above.';
-  return false;
-}
+/* ===== CONTACT FORM ===== */
+(function(){
+  var form = document.getElementById('mw-form');
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    var btn = document.getElementById('mw-form-btn');
+    var note = document.getElementById('form-note');
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    try{
+      var data = new FormData(form);
+      var res = await fetch(form.action, {method:'POST', body:data, headers:{Accept:'application/json'}});
+      if(res.ok){
+        form.reset();
+        note.textContent = 'Thank you — we have received your message. An advisor will contact you shortly.';
+      } else {
+        note.textContent = 'Something went wrong. Please try again, or email us at sales1@modul-woods.com.';
+      }
+    } catch(err){
+      note.textContent = 'Something went wrong. Please try again, or email us at sales1@modul-woods.com.';
+    }
+    btn.disabled = false;
+    btn.textContent = 'Send message';
+  });
+})();
 
 /* ===== INIT ===== */
 renderChips();
