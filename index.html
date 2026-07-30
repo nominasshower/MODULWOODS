@@ -640,7 +640,6 @@ function renderFinishes(){
   });
   var panel = document.getElementById('panel-tops');
   panel.innerHTML = '';
-  panel.style.display = 'block';
   ['luxury','economic'].forEach(function(cat){
     var items = FINISHES.tops.filter(function(f){ return f.cat===cat; });
     if(!items.length) return;
