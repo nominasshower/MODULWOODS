@@ -94,6 +94,36 @@ input,select,textarea,button{font-family:inherit;}
 .tab-btn.active{color:var(--accent-dark);border-bottom:2px solid var(--accent);}
 
 footer a:hover{color:#fff!important;}
+
+/* ── PRODUCT DETAIL ── */
+.pd-crumb{font-size:12.5px;color:var(--muted);}
+.pd-crumb a{color:var(--accent-dark);}
+.pd-crumb a:hover{text-decoration:underline;}
+.pd-nav-arrow{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--wood-dark);font-size:16px;transition:all .2s;flex-shrink:0;}
+.pd-nav-arrow:hover{background:var(--accent);border-color:var(--accent);color:#fff;}
+.pd-main-img-wrap{position:relative;aspect-ratio:4/3;border-radius:var(--radius);overflow:hidden;background:#F1E9DC;}
+.pd-main-img-wrap img{width:100%;height:100%;object-fit:cover;}
+.pd-gal-arrow{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.85);border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:17px;color:var(--wood-dark);transition:all .2s;}
+.pd-gal-arrow:hover{background:#fff;}
+.pd-gal-prev{left:14px;}
+.pd-gal-next{right:14px;}
+.pd-thumb{aspect-ratio:1;border-radius:var(--radius);overflow:hidden;cursor:pointer;border:2px solid transparent;opacity:.65;transition:all .2s;}
+.pd-thumb.active{border-color:var(--accent);opacity:1;}
+.pd-thumb:hover{opacity:1;}
+.pd-thumb img{width:100%;height:100%;object-fit:cover;}
+.pd-side-block h4{font-family:'Fraunces',serif;font-weight:500;font-size:1.05rem;margin:0 0 12px;color:var(--wood-dark);}
+.pd-side-block ul{margin:0;padding-left:18px;color:#4A3B2C;font-size:14px;line-height:1.9;}
+.pd-subchip{transition:all .2s;padding:7px 16px;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;border-radius:16px;white-space:nowrap;border:1px solid var(--line);background:#fff;color:var(--muted);font-weight:500;}
+.pd-subchip.active{border-color:var(--accent);background:var(--accent);color:#fff;font-weight:600;}
+.pd-group-heading{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-dark);font-weight:600;margin:28px 0 16px;}
+.pd-group-heading:first-child{margin-top:0;}
+
+/* ── RESPONSIVE NAV ── */
+@media(max-width:860px){
+  #desktop-nav{display:none!important;}
+  #quote-desktop{display:none!important;}
+  .hamburger{display:flex!important;}
+}
 </style>
 </head>
 <body>
@@ -106,7 +136,7 @@ footer a:hover{color:#fff!important;}
   <nav style="display:flex;align-items:center;gap:clamp(10px,1.8vw,26px);font-size:12.5px;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;" id="desktop-nav">
     <a href="#nosotros" class="nav-link" style="color:rgba(255,255,255,0.78);">About</a>
     <a href="#lineas" class="nav-link" style="color:rgba(255,255,255,0.78);">Product Lines</a>
-    <a href="#coleccion" class="nav-link" style="color:rgba(255,255,255,0.78);">Collections</a>
+    <a href="#/collections" class="nav-link" style="color:rgba(255,255,255,0.78);">Collections</a>
     <a href="#acabados" class="nav-link" style="color:rgba(255,255,255,0.78);">Finishes</a>
     <a href="#contacto" class="nav-link" style="color:rgba(255,255,255,0.78);">Contact</a>
   </nav>
@@ -119,13 +149,13 @@ footer a:hover{color:#fff!important;}
 <div class="mobile-menu" id="mobile-menu">
   <a href="#nosotros">About</a>
   <a href="#lineas">Product Lines</a>
-  <a href="#coleccion">Collections</a>
+  <a href="#/collections">Collections</a>
   <a href="#acabados">Finishes</a>
   <a href="#contacto">Contact</a>
 </div>
 
 <!-- HERO SLIDER -->
-<section id="top" class="mw-slider">
+<section class="mw-main-section" id="top" class="mw-slider">
   <div class="mw-slide active" style="background-image:url('media/slide_02.png');">
     <div class="mw-slide-content">
       <div style="animation:mwfade .9s ease both;">
@@ -133,7 +163,7 @@ footer a:hover{color:#fff!important;}
         <h1 class="mw-slide-title">Premium quality vanity cabinets.</h1>
         <p class="mw-slide-sub">We specialize in vanity cabinets tailored to your design needs — size, drawers, wall-mount or free-standing — complete with the vanity top of your choice.</p>
         <div style="display:flex;flex-wrap:wrap;gap:16px;margin-top:36px;">
-          <a href="#coleccion" style="background:var(--accent);color:#fff;padding:15px 32px;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;font-weight:600;border-radius:var(--radius);">See our products</a>
+          <a href="#/collections" style="background:var(--accent);color:#fff;padding:15px 32px;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;font-weight:600;border-radius:var(--radius);">See our products</a>
           <a href="#contacto" style="border:1px solid rgba(255,255,255,0.5);color:#fff;padding:15px 32px;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;font-weight:500;border-radius:var(--radius);">Request a quote</a>
         </div>
       </div>
@@ -146,7 +176,7 @@ footer a:hover{color:#fff!important;}
         <h1 class="mw-slide-title">Built for hotels, motels &amp; multi-family.</h1>
         <p class="mw-slide-sub">From Stilo to Rome, our hospitality collections are engineered for durability across homes, hotels, motels, assisted living and multi-family properties.</p>
         <div style="display:flex;flex-wrap:wrap;gap:16px;margin-top:36px;">
-          <a href="#coleccion" style="background:var(--accent);color:#fff;padding:15px 32px;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;font-weight:600;border-radius:var(--radius);">See collections</a>
+          <a href="#/line/hospitality" style="background:var(--accent);color:#fff;padding:15px 32px;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;font-weight:600;border-radius:var(--radius);">See collections</a>
         </div>
       </div>
     </div>
@@ -158,7 +188,7 @@ footer a:hover{color:#fff!important;}
         <h1 class="mw-slide-title">Refined design, custom sizing.</h1>
         <p class="mw-slide-sub">Eleven premium collections — Aspen, Athena, Monaco, Royal and more — paired with quartz, cultured marble or cultured granite vanity tops.</p>
         <div style="display:flex;flex-wrap:wrap;gap:16px;margin-top:36px;">
-          <a href="#coleccion" style="background:var(--accent);color:#fff;padding:15px 32px;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;font-weight:600;border-radius:var(--radius);">See collections</a>
+          <a href="#/line/premium" style="background:var(--accent);color:#fff;padding:15px 32px;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;font-weight:600;border-radius:var(--radius);">See collections</a>
         </div>
       </div>
     </div>
@@ -170,7 +200,7 @@ footer a:hover{color:#fff!important;}
         <h1 class="mw-slide-title">Style that fits every budget.</h1>
         <p class="mw-slide-sub">Gretta, Charleston, Denmark, Arizona and Berlin bring the Modul Woods look to every project without compromise.</p>
         <div style="display:flex;flex-wrap:wrap;gap:16px;margin-top:36px;">
-          <a href="#coleccion" style="background:var(--accent);color:#fff;padding:15px 32px;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;font-weight:600;border-radius:var(--radius);">See collections</a>
+          <a href="#/line/economic" style="background:var(--accent);color:#fff;padding:15px 32px;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;font-weight:600;border-radius:var(--radius);">See collections</a>
         </div>
       </div>
     </div>
@@ -181,7 +211,7 @@ footer a:hover{color:#fff!important;}
 </section>
 
 <!-- STATS -->
-<section style="background:var(--wood-dark);color:#fff;padding:38px clamp(20px,5vw,56px);">
+<section class="mw-main-section" style="background:var(--wood-dark);color:#fff;padding:38px clamp(20px,5vw,56px);">
   <div style="max-width:1280px;margin:0 auto;display:flex;flex-wrap:wrap;gap:28px 56px;justify-content:space-between;">
     <div style="min-width:130px;"><div style="font-family:'Fraunces',serif;font-size:clamp(1.9rem,2.8vw,2.6rem);line-height:1;">2004</div><div style="font-size:11.5px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-top:8px;">Modular Vanity Tops founded</div></div>
     <div style="min-width:130px;"><div style="font-family:'Fraunces',serif;font-size:clamp(1.9rem,2.8vw,2.6rem);line-height:1;">2018</div><div style="font-size:11.5px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-top:8px;">Modul Woods launched</div></div>
@@ -192,7 +222,7 @@ footer a:hover{color:#fff!important;}
 </section>
 
 <!-- ABOUT -->
-<section id="nosotros" style="padding:clamp(64px,9vw,120px) clamp(20px,5vw,56px);">
+<section class="mw-main-section" id="nosotros" style="padding:clamp(64px,9vw,120px) clamp(20px,5vw,56px);">
   <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:clamp(36px,5vw,76px);align-items:center;">
     <div class="mw-reveal-left">
       <div style="font-size:13px;letter-spacing:0.26em;text-transform:uppercase;color:var(--accent-dark);font-weight:600;">About us</div>
@@ -211,7 +241,7 @@ footer a:hover{color:#fff!important;}
 </section>
 
 <!-- PRODUCT LINES -->
-<section id="lineas" style="padding:clamp(64px,9vw,110px) clamp(20px,5vw,56px);background:#FFFFFF;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+<section class="mw-main-section" id="lineas" style="padding:clamp(64px,9vw,110px) clamp(20px,5vw,56px);background:#FFFFFF;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
   <div style="max-width:1280px;margin:0 auto;">
     <div class="mw-reveal" style="max-width:640px;">
       <div style="font-size:13px;letter-spacing:0.26em;text-transform:uppercase;color:var(--accent-dark);font-weight:600;">Our products</div>
@@ -219,21 +249,21 @@ footer a:hover{color:#fff!important;}
       <p style="font-size:clamp(15px,1.1vw,17px);line-height:1.75;color:#5C4A38;margin:16px 0 0;font-weight:300;">Every project falls into one of our three product lines — explore each below, then browse the full collection gallery.</p>
     </div>
     <div class="mw-stagger" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:26px;margin-top:48px;">
-      <a href="#coleccion" onclick="mwFilterLine('Hospitality')" class="line-card" style="display:block;background:var(--cream);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;">
+      <a href="#/line/hospitality" class="line-card" style="display:block;background:var(--cream);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;">
         <div style="aspect-ratio:3/2;overflow:hidden;"><img src="media/Hospitality-950x450-1.jpg" alt="Hospitality" style="width:100%;height:100%;object-fit:cover;"></div>
         <div style="padding:24px 26px 28px;display:flex;justify-content:space-between;align-items:center;gap:12px;">
           <div><div style="font-family:'Fraunces',serif;font-size:1.5rem;">Hospitality</div><div style="font-size:13px;color:var(--muted);margin-top:6px;font-weight:300;">Hotels, motels &amp; multi-family properties.</div></div>
           <span style="color:var(--accent-dark);font-size:18px;">→</span>
         </div>
       </a>
-      <a href="#coleccion" onclick="mwFilterLine('Premium')" class="line-card" style="display:block;background:var(--cream);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;">
+      <a href="#/line/premium" class="line-card" style="display:block;background:var(--cream);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;">
         <div style="aspect-ratio:3/2;overflow:hidden;"><img src="media/Premium-950x450-1.jpg" alt="Premium" style="width:100%;height:100%;object-fit:cover;"></div>
         <div style="padding:24px 26px 28px;display:flex;justify-content:space-between;align-items:center;gap:12px;">
           <div><div style="font-family:'Fraunces',serif;font-size:1.5rem;">Premium</div><div style="font-size:13px;color:var(--muted);margin-top:6px;font-weight:300;">Refined finishes for residential design.</div></div>
           <span style="color:var(--accent-dark);font-size:18px;">→</span>
         </div>
       </a>
-      <a href="#coleccion" onclick="mwFilterLine('Economic Line')" class="line-card" style="display:block;background:var(--cream);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;">
+      <a href="#/line/economic" class="line-card" style="display:block;background:var(--cream);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;">
         <div style="aspect-ratio:3/2;overflow:hidden;"><img src="media/Economic-950x450-1.jpg" alt="Economic Line" style="width:100%;height:100%;object-fit:cover;"></div>
         <div style="padding:24px 26px 28px;display:flex;justify-content:space-between;align-items:center;gap:12px;">
           <div><div style="font-family:'Fraunces',serif;font-size:1.5rem;">Economic Line</div><div style="font-size:13px;color:var(--muted);margin-top:6px;font-weight:300;">Great style, every budget.</div></div>
@@ -245,20 +275,63 @@ footer a:hover{color:#fff!important;}
 </section>
 
 <!-- COLLECTIONS GALLERY -->
-<section id="coleccion" style="padding:clamp(64px,9vw,110px) clamp(20px,5vw,56px);">
+<section class="mw-main-section" id="coleccion" style="padding:clamp(64px,9vw,110px) clamp(20px,5vw,56px);">
   <div style="max-width:1280px;margin:0 auto;">
     <div class="mw-reveal" style="max-width:640px;">
-      <div style="font-size:13px;letter-spacing:0.26em;text-transform:uppercase;color:var(--accent-dark);font-weight:600;">Collections</div>
-      <h2 style="font-family:'Fraunces',serif;font-weight:500;font-size:clamp(2rem,4vw,3rem);line-height:1.1;margin:16px 0 0;">22 collections to choose from.</h2>
-      <p style="font-size:clamp(15px,1.1vw,17px);line-height:1.75;color:#5C4A38;margin:16px 0 0;font-weight:300;">Filter by product line to find the collection that fits your project.</p>
+      <div id="gallery-eyebrow" style="font-size:13px;letter-spacing:0.26em;text-transform:uppercase;color:var(--accent-dark);font-weight:600;">Collections</div>
+      <h2 id="gallery-title" style="font-family:'Fraunces',serif;font-weight:500;font-size:clamp(2rem,4vw,3rem);line-height:1.1;margin:16px 0 0;">22 collections to choose from.</h2>
+      <p id="gallery-sub" style="font-size:clamp(15px,1.1vw,17px);line-height:1.75;color:#5C4A38;margin:16px 0 0;font-weight:300;">Filter by product line to find the collection that fits your project.</p>
     </div>
     <div class="chip-scroll" id="line-filters" style="margin:38px 0 30px;"></div>
     <div id="gallery-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:24px;"></div>
   </div>
 </section>
 
+<!-- PRODUCT DETAIL VIEW -->
+<section class="mw-main-section" id="view-product" style="display:none;padding:clamp(110px,9vw,140px) clamp(20px,5vw,56px) clamp(64px,9vw,110px);">
+  <div style="max-width:1280px;margin:0 auto;">
+    <div class="pd-crumb" id="pd-breadcrumb" style="margin-bottom:22px;"></div>
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-bottom:38px;">
+      <button class="pd-nav-arrow" id="pd-prev-btn" aria-label="Previous collection">&#8592;</button>
+      <h1 id="pd-title" style="font-family:'Fraunces',serif;font-weight:500;font-size:clamp(2.1rem,4.4vw,3.2rem);margin:0;text-align:center;flex:1;"></h1>
+      <button class="pd-nav-arrow" id="pd-next-btn" aria-label="Next collection">&#8594;</button>
+    </div>
+    <div style="display:grid;grid-template-columns:minmax(0,1.7fr) minmax(240px,1fr);gap:clamp(30px,4vw,54px);align-items:start;">
+      <div>
+        <div class="pd-main-img-wrap">
+          <img id="pd-main-img" src="" alt="">
+          <button class="pd-gal-arrow pd-gal-prev" id="pd-img-prev" aria-label="Previous image">&#8592;</button>
+          <button class="pd-gal-arrow pd-gal-next" id="pd-img-next" aria-label="Next image">&#8594;</button>
+        </div>
+        <div id="pd-thumbs" style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px;"></div>
+      </div>
+      <div>
+        <div class="pd-side-block" style="border:1px solid var(--line);border-radius:var(--radius);padding:24px 26px;background:#fff;margin-bottom:20px;">
+          <h4>Product Spec</h4>
+          <ul id="pd-spec"></ul>
+        </div>
+        <div class="pd-side-block" style="border:1px solid var(--line);border-radius:var(--radius);padding:24px 26px;background:#fff;">
+          <h4>Vanity Tops Options</h4>
+          <ul id="pd-tops-opts"></ul>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:56px;">
+      <div style="display:flex;gap:36px;border-bottom:2px solid var(--line);margin-bottom:34px;flex-wrap:wrap;">
+        <button class="tab-btn active" id="pdtab-sizes" onclick="pdTab('sizes')">Sizes</button>
+        <button class="tab-btn" id="pdtab-cabinet" onclick="pdTab('cabinet')">Color Cabinet</button>
+        <button class="tab-btn" id="pdtab-vanitytop" onclick="pdTab('vanitytop')">Color Vanity Top</button>
+      </div>
+      <div id="pdpanel-sizes" class="pd-tabpanel"></div>
+      <div id="pdpanel-cabinet" class="pd-tabpanel" style="display:none;"></div>
+      <div id="pdpanel-vanitytop" class="pd-tabpanel" style="display:none;"></div>
+    </div>
+  </div>
+</section>
+
 <!-- WHY MODUL WOODS -->
-<section style="padding:clamp(64px,9vw,110px) clamp(20px,5vw,56px);background:#FFFFFF;border-top:1px solid var(--line);">
+<section class="mw-main-section" style="padding:clamp(64px,9vw,110px) clamp(20px,5vw,56px);background:#FFFFFF;border-top:1px solid var(--line);">
   <div style="max-width:1280px;margin:0 auto;">
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(36px,5vw,66px);">
       <div class="mw-reveal-left">
@@ -283,7 +356,7 @@ footer a:hover{color:#fff!important;}
 </section>
 
 <!-- FINISHES -->
-<section id="acabados" style="padding:clamp(64px,9vw,110px) clamp(20px,5vw,56px);background:var(--cream);">
+<section class="mw-main-section" id="acabados" style="padding:clamp(64px,9vw,110px) clamp(20px,5vw,56px);background:var(--cream);">
   <div style="max-width:1280px;margin:0 auto;">
     <div class="mw-reveal" style="max-width:680px;margin-bottom:46px;">
       <div style="font-size:13px;letter-spacing:0.26em;text-transform:uppercase;color:var(--accent-dark);font-weight:600;">Finishes &amp; materials</div>
@@ -303,7 +376,7 @@ footer a:hover{color:#fff!important;}
 </section>
 
 <!-- CTA BANNER -->
-<section style="position:relative;padding:clamp(64px,9vw,110px) clamp(20px,5vw,56px);background-image:linear-gradient(rgba(24,15,10,0.84),rgba(24,15,10,0.84)),url('media/bgparallax.png');background-size:cover;background-position:center;color:#fff;text-align:center;">
+<section class="mw-main-section" style="position:relative;padding:clamp(64px,9vw,110px) clamp(20px,5vw,56px);background-image:linear-gradient(rgba(24,15,10,0.84),rgba(24,15,10,0.84)),url('media/bgparallax.png');background-size:cover;background-position:center;color:#fff;text-align:center;">
   <div class="mw-reveal" style="max-width:680px;margin:0 auto;">
     <div style="font-size:13px;letter-spacing:0.26em;text-transform:uppercase;color:rgba(255,255,255,0.6);font-weight:600;">Customer satisfaction</div>
     <h2 style="font-family:'Fraunces',serif;font-weight:500;font-size:clamp(2rem,4vw,3rem);line-height:1.1;margin:16px 0 0;">We are committed to customer satisfaction.</h2>
@@ -315,7 +388,7 @@ footer a:hover{color:#fff!important;}
 </section>
 
 <!-- CONTACT -->
-<section id="contacto" style="padding:clamp(64px,9vw,110px) clamp(20px,5vw,56px);">
+<section class="mw-main-section" id="contacto" style="padding:clamp(64px,9vw,110px) clamp(20px,5vw,56px);">
   <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(40px,5vw,70px);align-items:start;">
     <div class="mw-reveal-left">
       <div style="font-size:13px;letter-spacing:0.26em;text-transform:uppercase;color:var(--accent-dark);font-weight:600;">Contact</div>
@@ -391,7 +464,7 @@ footer a:hover{color:#fff!important;}
         <div style="display:flex;flex-direction:column;gap:10px;font-size:13.5px;">
           <a href="#nosotros" style="color:rgba(255,255,255,0.65);">About</a>
           <a href="#lineas" style="color:rgba(255,255,255,0.65);">Product lines</a>
-          <a href="#coleccion" style="color:rgba(255,255,255,0.65);">Collections</a>
+          <a href="#/collections" style="color:rgba(255,255,255,0.65);">Collections</a>
           <a href="#acabados" style="color:rgba(255,255,255,0.65);">Finishes</a>
         </div>
       </div>
@@ -418,30 +491,37 @@ footer a:hover{color:#fff!important;}
 <script>
 /* ===== DATA ===== */
 var COLLECTIONS = [
-  {name:'Gretta', line:'Economic Line', img:'media/Gretta-Frontal.png', sizes:'13.5" x 24.5"'},
-  {name:'Charleston', line:'Economic Line', img:'media/Charleston-RT-Frontal.png', sizes:'16.75" x 18.625", 18.75" x 24.625", 18.75" x 30.625", 21.75" x 24.625", 21.75" x 30.625", 21.75" x 36.625", 21.75" x 48.625"'},
-  {name:'Denmark', line:'Economic Line', img:'media/Denmark-Espresso-Frontal.png', sizes:'13.875" x 24.625", 18.875" x 24.625", 18.875" x 30.625", 18.875" x 36.625", 21.875" x 24.625", 21.875" x 30.625", 21.875" x 36.625"'},
-  {name:'Arizona', line:'Economic Line', img:'media/Arizona-Blanco-Frontal.png', sizes:'16.75" x 18.625", 18.75" x 24.625", 18.75" x 30.625", 21.75" x 24.625", 21.75" x 30.625", 21.75" x 36.625", 21.75" x 48.625"'},
-  {name:'Berlin', line:'Economic Line', img:'media/Berlin-Blanco-Frontal-2.png', sizes:'16.75" x 18.625", 18.75" x 24.625", 18.75" x 30.625", 21.75" x 24.625", 21.75" x 30.625", 21.75" x 36.625", 21.75" x 48.625"'},
-  {name:'Aspen', line:'Premium', img:'media/Aspen-Frontal.png', sizes:'18.875" x 24.625", 18.875" x 30.625", 18.875" x 36.625", 21.875" x 24.625", 21.875" x 30.625", 21.875" x 36.625", 21.875" x 48.625"'},
-  {name:'Athena', line:'Premium', img:'media/Athena-Espresso-Frontal.png', sizes:'13.75" x 24.625"'},
-  {name:'Sorrento', line:'Premium', img:'media/Sorrento-19x25-Gris-Frontal.png', sizes:'18.875" x 24.625", 21.875" x 24.625", 21.875" x 30.625", 21.875" x 36.625", 21.875" x 48.625"'},
-  {name:'Monaco', line:'Premium', img:'media/Monaco-Blanco-Frontal.png', sizes:'Custom Sizes'},
-  {name:'London', line:'Premium', img:'media/London-21x36-Gris-Frontal.png', sizes:'21.875" x 48.625"'},
-  {name:'Trento', line:'Premium', img:'media/Trento-SH-Frontal.png', sizes:'18.875" x 24.625", 21.875" x 24.625", 21.875" x 30.625", 21.875" x 36.625", 21.875" x 48.625"'},
-  {name:'Salisbury', line:'Premium', img:'media/Salisbury-21x36-Gris-Frontal.png', sizes:'18.875" x 24.625", 18.875" x 30.625", 18.875" x 36.625", 21.875" x 24.625", 21.875" x 30.625", 21.875" x 36.625", 21.875" x 48.625"'},
-  {name:'Royal', line:'Premium', img:'media/Royal-21x36-Gris-Frontal.png', sizes:'21.875" x 36.625", 21.875" x 48.625", 21.875" x 60.625"'},
-  {name:'NewPort', line:'Premium', img:'media/Newport-Gris-Frontal.png', sizes:'18.875" x 24.625", 18.875" x 30.625", 18.875" x 36.625", 21.875" x 24.625", 21.875" x 30.625", 21.875" x 36.625"'},
-  {name:'Napoli', line:'Premium', img:'media/Napoli-Frontal.png', sizes:'21.875" x 36.625", 21.875" x 48.625", 21.875" x 60.625" (offset right or left)'},
-  {name:'Udine', line:'Premium', img:'media/Udine-21x48-Espresso-Frontal.png', sizes:'21.875" x 36.625", 21.875" x 48.625", 21.875" x 60.625" (offset right or left)'},
-  {name:'Stilo', line:'Hospitality', img:'media/Stilo-La-Quinta-Frontal.png', sizes:'Custom Sizes'},
-  {name:'Charlotte', line:'Hospitality', img:'media/ModulWoods_hospitality_0011_Hampton-In-Charlotte-Frontal.jpg', sizes:'Custom Sizes'},
-  {name:'Montana', line:'Hospitality', img:'media/ModulWoods_hospitality_Hiex-Montana-Frontal.jpg', sizes:'Custom Sizes'},
-  {name:'Sacramento', line:'Hospitality', img:'media/ModulWoods_hospitality_Confort-Inn-Sacramento-Frontal.jpg', sizes:'Custom Sizes'},
-  {name:'Tebas', line:'Hospitality', img:'media/ModulWoods_hospitality_Courtyard-Marriot-Tebas-Frontal.jpg', sizes:'Custom Sizes'},
-  {name:'Rome', line:'Hospitality', img:'media/Rome-Frontal.png', sizes:'22" x 37", 22" x 49", 22" x 61"'}
+  {name:"Gretta", line:"Economic Line", img:"media/Gretta-Frontal.png", imgs:["media/Gretta-Frontal.png","media/ModulWoods_economic_Gretta-Lateral-Abierto.jpg","media/ModulWoods_economic_Gretta-Lateral-Cerrado-2.jpg","media/ModulWoods_economic_Gretta-Lateral-Cerrado.jpg"], spec:["Soft Close","Painted MDF","Laminated MDF","Wall Mounted Cabinet"], topsOpts:["Quartz","Cultured Marble","Cultured Granite"], sizesType:"list", sizes:["13.5″ x 24.5″"], sizesDisplay:"13.5″ x 24.5″"},
+  {name:"Charleston", line:"Economic Line", img:"media/Charleston-RT-Frontal.png", imgs:["media/Charleston-RT-Frontal.png","media/ModulWoods_economic_Charleston-RT-Lateral-Abierto-2.jpg","media/ModulWoods_economic_Charleston-RT-Lateral-Abierto.jpg","media/ModulWoods_economic_Charleston-RT-Lateral-Cerrado-2.jpg"], spec:["Height 34.5","Painted MDF","Regular Close"], topsOpts:["Quartz","Cultured Marble","Cultured Granite"], sizesType:"list", sizes:["16.75” x 18.625”","18.75” x 24.625”","18.75” x 30.625”","21.75” x 24.625”","21.75” x 30.625”","21.75” x 36.625”","21.75” x 48.625”"], sizesDisplay:"16.75” x 18.625”, 18.75” x 24.625”, 18.75” x 30.625”, 21.75” x 24.625”, 21.75” x 30.625”, 21.75” x 36.625”, 21.75” x 48.625”"},
+  {name:"Denmark", line:"Economic Line", img:"media/Denmark-Espresso-Frontal.png", imgs:["media/Denmark-Espresso-Frontal.png","media/ModulWoods_economic_Denmark-Espresso-Frontal-Top-Abierto.jpg","media/ModulWoods_economic_Denmark-Espresso-Frontal-Top.jpg","media/ModulWoods_economic_Denmark-Espresso-Lateral-Abierto-2.jpg"], spec:["Soft Close","Height 34.5","Painted MDF"], topsOpts:["Quartz","Cultured Marble","Cultured Granite"], sizesType:"list", sizes:["13.875” x 24.625”","18.875″ x 24.625″","18.875″ x 30.625″","18.875″ x 36.625″","21.875″ x 24.625″","21.875″ x 30.625″","21.875″ x 36.625″"], sizesDisplay:"13.875” x 24.625”, 18.875″ x 24.625″, 18.875″ x 30.625″, 18.875″ x 36.625″, 21.875″ x 24.625″, 21.875″ x 30.625″, 21.875″ x 36.625″"},
+  {name:"Arizona", line:"Economic Line", img:"media/Arizona-Blanco-Frontal.png", imgs:["media/Arizona-Blanco-Frontal.png","media/ModulWoods_economic_Arizona-Blanco-Frontal-Top.jpg","media/ModulWoods_economic_Arizona-Blanco-Frontal-Abierto.jpg","media/ModulWoods_economic_Arizona-Blanco-Lateral-Abierto-2.jpg"], spec:["Height 34.5","Painted MDF","Regular Close"], topsOpts:["Quartz","Cultured Marble","Cultured Granite"], sizesType:"list", sizes:["16.75” x 18.625”","18.75” x 24.625”","18.75” x 30.625”","21.75” x 24.625”","21.75” x 30.625”","21.75” x 36.625”","21.75” x 48.625”"], sizesDisplay:"16.75” x 18.625”, 18.75” x 24.625”, 18.75” x 30.625”, 21.75” x 24.625”, 21.75” x 30.625”, 21.75” x 36.625”, 21.75” x 48.625”"},
+  {name:"Berlin", line:"Economic Line", img:"media/Berlin-Blanco-Frontal-2.png", imgs:["media/Berlin-Blanco-Frontal-2.png","media/ModulWoods_economic_Berlin-Blanco-Frontal-Top.jpg","media/ModulWoods_economic_Berlin-Blanco-Lateral-Abierto-2.jpg","media/ModulWoods_economic_Berlin-Blanco-Lateral-Abierto.jpg"], spec:["Height 34.5","Regular Close","Melamine"], topsOpts:["Quartz","Cultured Marble","Cultured Granite"], sizesType:"list", sizes:["16.75” x 18.625”","18.75” x 24.625”","18.75” x 30.625”","21.75” x 24.625”","21.75” x 30.625”","21.75” x 36.625”","21.75” x 48.625”"], sizesDisplay:"16.75” x 18.625”, 18.75” x 24.625”, 18.75” x 30.625”, 21.75” x 24.625”, 21.75” x 30.625”, 21.75” x 36.625”, 21.75” x 48.625”"},
+  {name:"Aspen", line:"Premium", img:"media/Aspen-Frontal.png", imgs:["media/Aspen-Frontal.png","media/Aspen-Frontal-Top.png","media/Aspen-Frontal-Abierto.png","media/Aspen-Lateral-Abierto-2.png"], spec:["Soft Close","Height 34.5","Painted MDF"], topsOpts:["Quartz","Cultured Marble","Cultured Granite"], sizesType:"list", sizes:["18.875” x 24.625”","18.875” x 30.625”","18.875” x 36.625”","21.875” x 24.625”","21.875” x 30.625”","21.875” x 36.625”","21.875” x 48.625”"], sizesDisplay:"18.875” x 24.625”, 18.875” x 30.625”, 18.875” x 36.625”, 21.875” x 24.625”, 21.875” x 30.625”, 21.875” x 36.625”, 21.875” x 48.625”"},
+  {name:"Athena", line:"Premium", img:"media/Athena-Espresso-Frontal.png", imgs:["media/Athena-Espresso-Frontal.png","media/ModulWoods_products_0074_Athena-Espresso-Frontal-Top.jpg","media/ModulWoods_products_0071_Athena-Espresso-Lateral-Abierto-2.jpg","media/ModulWoods_products_0070_Athena-Espresso-Lateral-Abierto.jpg"], spec:["Regular Close","Laminated MDF","Melamine"], topsOpts:["Quartz","Cultured Marble","Cultured Granite"], sizesType:"list", sizes:["13.75″ x 24.625″"], sizesDisplay:"13.75″ x 24.625″"},
+  {name:"Sorrento", line:"Premium", img:"media/Sorrento-19x25-Gris-Frontal.png", imgs:["media/Sorrento-19x25-Gris-Frontal.png","media/ModulWoods_products_0026_Sorrento-19x25-Gris-Frontal-Top.jpg","media/ModulWoods_products_0024_Sorrento-19x25-Gris-Lateral-Abierto-2.jpg","media/ModulWoods_products_0023_Sorrento-19x25-Gris-Lateral-Abierto.jpg"], spec:["Soft Close","Height 34.5","Painted MDF"], topsOpts:["Quartz","Cultured Marble","Cultured Granite"], sizesType:"list", sizes:["18.875″ x 24.625″","21.875″ x 24.625″","21.875″ x 30.625″","21.875″ x 36.625″","21.875″ x 48.625″"], sizesDisplay:"18.875″ x 24.625″, 21.875″ x 24.625″, 21.875″ x 30.625″, 21.875″ x 36.625″, 21.875″ x 48.625″"},
+  {name:"Monaco", line:"Premium", img:"media/Monaco-Blanco-Frontal.png", imgs:["media/Monaco-Blanco-Frontal.png","media/ModulWoods_products_0060_Monaco-Blanco-Lateral-Abierto-2.jpg","media/ModulWoods_products_0059_Monaco-Blanco-Lateral-Abierto.jpg","media/ModulWoods_products_0058_Monaco-Blanco-Lateral-Cerrado-2.jpg"], spec:["Height 34.5","Painted MDF"], topsOpts:["Quartz","Cultured Marble","Cultured Granite"], sizesType:"custom_text", sizes:[], sizesDisplay:"Custom Sizes"},
+  {name:"London", line:"Premium", img:"media/London-21x36-Gris-Frontal.png", imgs:["media/London-21x36-Gris-Frontal.png","media/ModulWoods_products_0067_London-21x36-Gris-Frontal-Top.jpg","media/ModulWoods_products_0065_London-21x36-Gris-Lateral-Cerrado.jpg"], spec:["Soft Close","Height 34.5","Painted MDF"], topsOpts:["Quartz","Cultured Marble","Cultured Granite"], sizesType:"list", sizes:["21.875” x 48.625”"], sizesDisplay:"21.875” x 48.625”"},
+  {name:"Trento", line:"Premium", img:"media/Trento-SH-Frontal.png", imgs:["media/Trento-SH-Frontal.png","media/ModulWoods_products_0010_Trento-SH-Frontal-Top.jpg","media/ModulWoods_products_0008_Trento-SH-Lateral-Abierto-2.jpg","media/ModulWoods_products_0007_Trento-SH-Lateral-Abierto.jpg"], spec:["Soft Close","Height 34.5","Painted MDF"], topsOpts:["Quartz","Cultured Marble","Cultured Granite"], sizesType:"list", sizes:["18.875″ x 24.625″","21.875″ x 24.625″","21.875″ x 30.625″","21.875″ x 36.625″","21.875″ x 48.625″"], sizesDisplay:"18.875″ x 24.625″, 21.875″ x 24.625″, 21.875″ x 30.625″, 21.875″ x 36.625″, 21.875″ x 48.625″"},
+  {name:"Salisbury", line:"Premium", img:"media/Salisbury-21x36-Gris-Frontal.png", imgs:["media/Salisbury-21x36-Gris-Frontal.png","media/ModulWoods_products_0032_Salisbury-21x36-Gris-Frontal-Top.jpg","media/ModulWoods_products_0030_Salisbury-21x36-Gris-Lateral-Abierto-2.jpg","media/ModulWoods_products_0029_Salisbury-21x36-Gris-Lateral-Abierto.jpg"], spec:["Soft Close","Height 34.5","Painted MDF"], topsOpts:["Quartz","Cultured Marble","Cultured Granite"], sizesType:"custom_text", sizes:[], sizesDisplay:"Custom Sizes"},
+  {name:"Royal", line:"Premium", img:"media/Royal-21x36-Gris-Frontal.png", imgs:["media/Royal-21x36-Gris-Frontal.png","media/ModulWoods_products_0039_Royal-21x48-Gris-Frontal-Top.jpg","media/ModulWoods_products_0040_Royal-21x36-Gris-Lateral-Abierto.jpg","media/ModulWoods_products_0038_Royal-21x48-Gris-Lateral-Cerrado-2.jpg"], spec:["Soft Close","Height 34.5","Painted MDF"], topsOpts:["Quartz","Cultured Marble","Cultured Granite"], sizesType:"list", sizes:["21.875″ x 36.625″","21.875″ x 48.625″","21.875″ x 60.625″"], sizesDisplay:"21.875″ x 36.625″, 21.875″ x 48.625″, 21.875″ x 60.625″"},
+  {name:"NewPort", line:"Premium", img:"media/Newport-Gris-Frontal.png", imgs:["media/Newport-Gris-Frontal.png","media/ModulWoods_products_0048_Newport-Gris-Frontal-Top.jpg","media/ModulWoods_products_0046_Newport-Gris-Lateral-Abierto-2.jpg","media/ModulWoods_products_0045_Newport-Gris-Lateral-Abierto.jpg"], spec:["Soft Close","Height 34.5","Painted MDF"], topsOpts:["Quartz","Cultured Marble","Cultured Granite"], sizesType:"list", sizes:["18.875″ x 24.625″","18.875″ x 30.625″","18.875″ x 36.625″","21.875″ x 24.625″","21.875″ x 30.625″","21.875″ x 36.625″"], sizesDisplay:"18.875″ x 24.625″, 18.875″ x 30.625″, 18.875″ x 36.625″, 21.875″ x 24.625″, 21.875″ x 30.625″, 21.875″ x 36.625″"},
+  {name:"Napoli", line:"Premium", img:"media/Napoli-Frontal.png", imgs:["media/Napoli-Frontal.png","media/ModulWoods_products_0055_Napoli-Frontal-Top.jpg","media/ModulWoods_products_0053_Napoli-Lateral-Abierto.jpg","media/ModulWoods_products_0052_Napoli-Lateral-Cerrado.jpg"], spec:["Soft Close","Height 34.5","Painted MDF"], topsOpts:["Quartz","Cultured Marble","Cultured Granite"], sizesType:"list", sizes:["21.875″ x 36.625″","21.875″ x 48.625″","21.875″ x 60.625″"], sizesDisplay:"21.875″ x 36.625″, 21.875″ x 48.625″, 21.875″ x 60.625″"},
+  {name:"Udine", line:"Premium", img:"media/Udine-21x48-Espresso-Frontal.png", imgs:["media/Udine-21x48-Espresso-Frontal.png","media/ModulWoods_products_0004_Udine-21x48-Espresso-Frontal-Top.jpg","media/ModulWoods_products_0001_Udine-21x48-Espresso-Lateral-Abierto.jpg","media/ModulWoods_products_0002_Udine-21x48-Espresso-Lateral-2.jpg"], spec:["Soft Close","Height 34.5","Painted MDF"], topsOpts:["Quartz","Cultured Marble","Cultured Granite"], sizesType:"list", sizes:["21.875″ x 36.625″","21.875″ x 48.625″","21.875″ x 60.625″"], sizesDisplay:"21.875″ x 36.625″, 21.875″ x 48.625″, 21.875″ x 60.625″"},
+  {name:"Stilo", line:"Hospitality", img:"media/Stilo-La-Quinta-Frontal.png", imgs:["media/Stilo-La-Quinta-Frontal.png","media/ModulWoods_0003_Stilo-La-Quinta-Frontal-Top.jpg","media/ModulWoods_0001_Stilo-La-Quinta-Lateral-2.jpg","media/ModulWoods_0000_Stilo-La-Quinta-Lateral.jpg"], spec:["Height 34.5","Painted MDF"], topsOpts:["Quartz","Cultured Marble","Cultured Granite"], sizesType:"custom_text", sizes:[], sizesDisplay:"Custom Sizes"},
+  {name:"Charlotte", line:"Hospitality", img:"media/ModulWoods_hospitality_0011_Hampton-In-Charlotte-Frontal.jpg", imgs:["media/ModulWoods_hospitality_0011_Hampton-In-Charlotte-Frontal.jpg","media/ModulWoods_hospitality_0012_Hampton-In-Charlotte-Frontal-Top.jpg","media/ModulWoods_hospitality_0010_Hampton-In-Charlotte-Lateral-Abierto-2.jpg","media/ModulWoods_hospitality_0009_Hampton-In-Charlotte-Lateral-Abierto.jpg"], spec:["Soft Close","Laminated MDF"], topsOpts:["Quartz","Cultured Marble","Cultured Granite"], sizesType:"custom_text", sizes:[], sizesDisplay:"Custom Sizes"},
+  {name:"Montana", line:"Hospitality", img:"media/ModulWoods_hospitality_Hiex-Montana-Frontal.jpg", imgs:["media/ModulWoods_hospitality_Hiex-Montana-Frontal.jpg","media/ModulWoods_hospitality_Hiex-Montana-Lateral-2.jpg","media/ModulWoods_hospitality_Hiex-Montana-Lateral.jpg"], spec:["Melamine","Laminated MDF"], topsOpts:["Quartz","Cultured Marble","Cultured Granite"], sizesType:"custom_text", sizes:[], sizesDisplay:"Custom Sizes"},
+  {name:"Sacramento", line:"Hospitality", img:"media/ModulWoods_hospitality_Confort-Inn-Sacramento-Frontal.jpg", imgs:["media/ModulWoods_hospitality_Confort-Inn-Sacramento-Frontal.jpg","media/ModulWoods_hospitality_Confort-Inn-Sacramento-Frontal-Top.jpg","media/ModulWoods_hospitality_Confort-Inn-Sacramento-Lateral-2.jpg","media/ModulWoods_hospitality_Confort-Inn-Sacramento-Lateral.jpg"], spec:["Height 34.5","Laminated MDF"], topsOpts:["Quartz","Cultured Marble","Cultured Granite"], sizesType:"custom_text", sizes:[], sizesDisplay:"Custom Sizes"},
+  {name:"Tebas", line:"Hospitality", img:"media/ModulWoods_hospitality_Courtyard-Marriot-Tebas-Frontal.jpg", imgs:["media/ModulWoods_hospitality_Courtyard-Marriot-Tebas-Frontal.jpg","media/ModulWoods_hospitality_Courtyard-Marriot-Tebas-Lateral-2.jpg","media/ModulWoods_hospitality_Courtyard-Marriot-Tebas-Lateral.jpg"], spec:["Height 34.5","Laminated MDF"], topsOpts:["Quartz","Cultured Marble","Cultured Granite"], sizesType:"custom_text", sizes:[], sizesDisplay:"Custom Sizes"},
+  {name:"Rome", line:"Hospitality", img:"media/Rome-Frontal.png", imgs:["media/Rome-Frontal.png","media/ModulWoods_hospitality_Rome-Frontal-Top-1.jpg","media/ModulWoods_hospitality_Rome-Lateral-2-1.jpg","media/ModulWoods_hospitality_Rome-Lateral-1.jpg"], spec:["Height 34.5","Painted MDF"], topsOpts:["Quartz","Cultured Marble","Cultured Granite"], sizesType:"list", sizes:["22″ x 37″","22″ x 49″","22″ x 61″"], sizesDisplay:"22″ x 37″, 22″ x 49″, 22″ x 61″"}
 ];
 var LINES = ['All','Hospitality','Premium','Economic Line'];
+var LINE_ORDER = {
+  "Hospitality": ["Stilo","Charlotte","Montana","Sacramento","Tebas","Rome"],
+  "Premium": ["Aspen","Athena","Sorrento","Monaco","London","Trento","Salisbury","Royal","NewPort","Napoli","Udine"],
+  "Economic Line": ["Gretta","Berlin","Arizona","Denmark","Charleston"]
+};
+var LINE_KEY_TO_NAME = {hospitality:'Hospitality', premium:'Premium', economic:'Economic Line'};
+var LINE_NAME_TO_KEY = {'Hospitality':'hospitality', 'Premium':'premium', 'Economic Line':'economic'};
 
 var FINISHES = {
   painted: [
@@ -466,16 +546,36 @@ var FINISHES = {
     {name:'Sanatana Oak', img:'media/Sanatana-Oak.jpg'}
   ],
   tops: [
-    {name:'Calacatta Statuario', img:'media/Calacatta-Statuario.jpg'},
-    {name:'Calacatta Vienna', img:'media/Calacatta-Vienna.jpg'},
-    {name:'Bianco Gray', img:'media/Bianco-Gray.jpg'},
-    {name:'Bianco Gold', img:'media/Bianco-Gold.jpg'},
-    {name:'Galaxy Gray', img:'media/Galaxy-Gray.jpg'},
-    {name:'Galaxy White', img:'media/Galaxy-White.jpg'},
-    {name:'Pure White', img:'media/Pure-White.jpg'},
-    {name:'Snow White', img:'media/Snow-White.jpg'}
+    {name:'Calacatta Statuario', img:'media/Calacatta-Statuario.jpg', cat:'luxury'},
+    {name:'Calacatta Vienna', img:'media/Calacatta-Vienna.jpg', cat:'luxury'},
+    {name:'Calacatta Simply', img:'media/Calacatta-Simply.jpg', cat:'luxury'},
+    {name:'Calacatta Murano', img:'media/Calacatta-Murano.jpg', cat:'luxury'},
+    {name:'Bianco Gray', img:'media/Bianco-Gray.jpg', cat:'luxury'},
+    {name:'Bianco Gold', img:'media/Bianco-Gold.jpg', cat:'luxury'},
+    {name:'Lyra', img:'media/Lyra.jpg', cat:'luxury'},
+    {name:'Galaxy Gray', img:'media/Galaxy-Gray.jpg', cat:'luxury'},
+    {name:'Galaxy White', img:'media/Galaxy-White.jpg', cat:'luxury'},
+    {name:'Manhattan Gray', img:'media/Manhattan-Gray.jpg', cat:'luxury'},
+    {name:'Pure White', img:'media/Pure-White.jpg', cat:'luxury'},
+    {name:'Iceberg', img:'media/Iceberg.jpg', cat:'luxury'},
+    {name:'Frost', img:'media/Frost-1.jpg', cat:'luxury'},
+    {name:'Snow White', img:'media/Snow-White.jpg', cat:'luxury'},
+    {name:'Solid White', img:'media/Solid-White.jpg', cat:'economic'},
+    {name:'White / White', img:'media/White-White.jpg', cat:'economic'},
+    {name:'Italian White', img:'media/Italian-White.jpg', cat:'economic'},
+    {name:'Capuccino', img:'media/Capuccino.jpg', cat:'economic'},
+    {name:'Pewter', img:'media/Pewter.jpg', cat:'economic'},
+    {name:'Dune', img:'media/Dune.jpg', cat:'economic'},
+    {name:'Rockytrail', img:'media/Rockytrail.jpg', cat:'economic'},
+    {name:'Frost', img:'media/Frost.jpg', cat:'economic'},
+    {name:'MoonScape', img:'media/MoonScape.jpg', cat:'economic'},
+    {name:'MoonStone', img:'media/MoonStone.jpg', cat:'economic'},
+    {name:'Artic Stone', img:'media/Artic-Stone.jpg', cat:'economic'},
+    {name:'Boulder', img:'media/Boulder.jpg', cat:'economic'}
   ]
 };
+
+function slugify(s){ return s.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,''); }
 
 /* ===== GALLERY RENDER ===== */
 var currentLine = 'All';
@@ -486,9 +586,27 @@ function renderChips(){
     var chip = document.createElement('div');
     chip.className = 'chip ' + (l===currentLine?'chip-active':'chip-inactive');
     chip.textContent = l;
-    chip.onclick = function(){ currentLine = l; renderChips(); renderGallery(); };
+    chip.onclick = function(){
+      if(l==='All'){ location.hash = '#/collections'; }
+      else { location.hash = '#/line/' + LINE_NAME_TO_KEY[l]; }
+    };
     wrap.appendChild(chip);
   });
+}
+function updateGalleryHeading(){
+  var eyebrow = document.getElementById('gallery-eyebrow');
+  var title = document.getElementById('gallery-title');
+  var sub = document.getElementById('gallery-sub');
+  if(currentLine==='All'){
+    eyebrow.textContent = 'Collections';
+    title.textContent = '22 collections to choose from.';
+    sub.textContent = 'Filter by product line to find the collection that fits your project.';
+  } else {
+    var count = COLLECTIONS.filter(function(c){ return c.line===currentLine; }).length;
+    eyebrow.textContent = currentLine;
+    title.textContent = currentLine + ' — ' + count + ' collection' + (count===1?'':'s') + '.';
+    sub.textContent = 'Showing only the ' + currentLine + ' line. Choose a different product line above to switch.';
+  }
 }
 function renderGallery(){
   var grid = document.getElementById('gallery-grid');
@@ -498,44 +616,58 @@ function renderGallery(){
     var card = document.createElement('div');
     card.className = 'gal-card mw-reveal';
     card.style.cssText = 'background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;';
+    card.onclick = function(){ location.hash = '#/product/' + slugify(c.name); };
     card.innerHTML =
       '<div style="aspect-ratio:4/3;overflow:hidden;background:#F1E9DC;display:flex;align-items:center;justify-content:center;">'+
-        '<img class="gal-img" src="'+c.img+'" alt="'+c.name+'" style="width:100%;height:100%;object-fit:cover;" onclick="mwOpenLightbox(event,\''+c.img+'\',\''+c.name+'\')">'+
+        '<img class="gal-img" src="'+c.img+'" alt="'+c.name+'" style="width:100%;height:100%;object-fit:cover;">'+
       '</div>'+
       '<div style="padding:16px 18px;">'+
         '<div style="display:flex;justify-content:space-between;align-items:center;"><div style="font-family:\'Fraunces\',serif;font-size:1.15rem;">'+c.name+'</div><div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);">'+c.line+'</div></div>'+
-        (c.sizes?'<div style="font-size:11.5px;color:var(--muted);margin-top:8px;line-height:1.5;">'+c.sizes+'</div>':'')+
+        '<div style="font-size:11.5px;color:var(--muted);margin-top:8px;line-height:1.5;">'+(c.sizesType==='custom_text'?'Custom Sizes':c.sizesDisplay)+'</div>'+
       '</div>';
     grid.appendChild(card);
     requestAnimationFrame(function(){ observeEl(card); });
   });
 }
-function mwFilterLine(l){
-  currentLine = l;
-  renderChips();
-  renderGallery();
-}
 
-/* ===== FINISHES RENDER ===== */
+/* ===== FINISHES RENDER (global Finishes & Materials section) ===== */
 function renderFinishes(){
-  Object.keys(FINISHES).forEach(function(key){
+  ['painted','laminated','thermofoil'].forEach(function(key){
     var panel = document.getElementById('panel-'+key);
     panel.innerHTML = '';
     FINISHES[key].forEach(function(f){
-      var sw = document.createElement('div');
-      sw.className = 'swatch mw-reveal';
-      sw.onclick = function(){ mwOpenLightbox(null, f.img, f.name); };
-      sw.innerHTML =
-        '<div style="aspect-ratio:1;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);"><img src="'+f.img+'" alt="'+f.name+'" style="width:100%;height:100%;object-fit:cover;"></div>'+
-        '<div style="text-align:center;font-size:12.5px;margin-top:9px;color:#4A3B2C;">'+f.name+'</div>';
-      panel.appendChild(sw);
-      requestAnimationFrame(function(){ observeEl(sw); });
+      panel.appendChild(buildSwatch(f));
     });
   });
+  var panel = document.getElementById('panel-tops');
+  panel.innerHTML = '';
+  panel.style.display = 'block';
+  ['luxury','economic'].forEach(function(cat){
+    var items = FINISHES.tops.filter(function(f){ return f.cat===cat; });
+    if(!items.length) return;
+    var heading = document.createElement('div');
+    heading.className = 'pd-group-heading';
+    heading.textContent = cat==='luxury' ? 'Luxury' : 'Economic';
+    panel.appendChild(heading);
+    var row = document.createElement('div');
+    row.style.cssText = 'display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:20px;';
+    items.forEach(function(f){ row.appendChild(buildSwatch(f)); });
+    panel.appendChild(row);
+  });
+}
+function buildSwatch(f){
+  var sw = document.createElement('div');
+  sw.className = 'swatch mw-reveal';
+  sw.onclick = function(){ mwOpenLightbox(null, f.img, f.name); };
+  sw.innerHTML =
+    '<div style="aspect-ratio:1;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);"><img src="'+f.img+'" alt="'+f.name+'" style="width:100%;height:100%;object-fit:cover;"></div>'+
+    '<div style="text-align:center;font-size:12.5px;margin-top:9px;color:#4A3B2C;">'+f.name+'</div>';
+  requestAnimationFrame(function(){ observeEl(sw); });
+  return sw;
 }
 function mwTab(key){
   ['painted','laminated','thermofoil','tops'].forEach(function(k){
-    document.getElementById('panel-'+k).style.display = (k===key?'grid':'none');
+    document.getElementById('panel-'+k).style.display = (k===key?(k==='tops'?'block':'grid'):'none');
     document.getElementById('tab-'+k).classList.toggle('active', k===key);
   });
 }
@@ -548,6 +680,200 @@ function mwOpenLightbox(ev, src, alt){
   document.getElementById('lightbox').style.display = 'flex';
 }
 function mwCloseLightbox(){ document.getElementById('lightbox').style.display = 'none'; }
+
+/* ===== PRODUCT DETAIL VIEW ===== */
+var pdState = {product:null, imgIndex:0, cabFilter:'all', vanFilter:'all'};
+
+function findCollectionBySlug(slug){
+  for(var i=0;i<COLLECTIONS.length;i++){
+    if(slugify(COLLECTIONS[i].name) === slug) return COLLECTIONS[i];
+  }
+  return null;
+}
+function renderProduct(slug){
+  var c = findCollectionBySlug(slug);
+  if(!c){ location.hash = '#/collections'; return; }
+  pdState.product = c;
+  pdState.imgIndex = 0;
+  pdState.cabFilter = 'all';
+  pdState.vanFilter = 'all';
+
+  var lineKey = LINE_NAME_TO_KEY[c.line];
+  document.getElementById('pd-breadcrumb').innerHTML =
+    '<a href="#top">Home</a> / <a href="#/collections">Products</a> / <a href="#/line/'+lineKey+'">'+c.line+'</a> / '+c.name;
+  document.getElementById('pd-title').textContent = c.name;
+
+  renderPdGallery();
+  renderPdSidebar(c);
+  renderPdNav(c);
+
+  pdTab('sizes');
+}
+function renderPdGallery(){
+  var c = pdState.product;
+  var imgs = c.imgs && c.imgs.length ? c.imgs : [c.img];
+  var mainImg = document.getElementById('pd-main-img');
+  mainImg.src = imgs[pdState.imgIndex];
+  mainImg.alt = c.name;
+
+  var prevBtn = document.getElementById('pd-img-prev');
+  var nextBtn = document.getElementById('pd-img-next');
+  var thumbsWrap = document.getElementById('pd-thumbs');
+  thumbsWrap.innerHTML = '';
+
+  if(imgs.length <= 1){
+    prevBtn.style.display = 'none';
+    nextBtn.style.display = 'none';
+    thumbsWrap.style.display = 'none';
+    return;
+  }
+  prevBtn.style.display = 'flex';
+  nextBtn.style.display = 'flex';
+  thumbsWrap.style.display = 'grid';
+  imgs.forEach(function(src, i){
+    var t = document.createElement('div');
+    t.className = 'pd-thumb' + (i===pdState.imgIndex ? ' active' : '');
+    t.innerHTML = '<img src="'+src+'" alt="'+pdState.product.name+' angle '+(i+1)+'">';
+    t.onclick = function(){ pdState.imgIndex = i; renderPdGallery(); };
+    thumbsWrap.appendChild(t);
+  });
+  prevBtn.onclick = function(){ pdState.imgIndex = (pdState.imgIndex - 1 + imgs.length) % imgs.length; renderPdGallery(); };
+  nextBtn.onclick = function(){ pdState.imgIndex = (pdState.imgIndex + 1) % imgs.length; renderPdGallery(); };
+}
+function renderPdSidebar(c){
+  var specUl = document.getElementById('pd-spec');
+  specUl.innerHTML = c.spec.map(function(s){ return '<li>'+s+'</li>'; }).join('');
+  var topsUl = document.getElementById('pd-tops-opts');
+  topsUl.innerHTML = c.topsOpts.map(function(s){ return '<li>'+s+'</li>'; }).join('');
+}
+function renderPdNav(c){
+  var order = LINE_ORDER[c.line] || [c.name];
+  var idx = order.indexOf(c.name);
+  var prevName = order[(idx - 1 + order.length) % order.length];
+  var nextName = order[(idx + 1) % order.length];
+  document.getElementById('pd-prev-btn').onclick = function(){ location.hash = '#/product/' + slugify(prevName); };
+  document.getElementById('pd-next-btn').onclick = function(){ location.hash = '#/product/' + slugify(nextName); };
+}
+
+function pdTab(key){
+  ['sizes','cabinet','vanitytop'].forEach(function(k){
+    document.getElementById('pdpanel-'+k).style.display = (k===key?'block':'none');
+    document.getElementById('pdtab-'+k).classList.toggle('active', k===key);
+  });
+  if(key==='sizes') renderPdSizes();
+  if(key==='cabinet') renderPdCabinet();
+  if(key==='vanitytop') renderPdVanityTop();
+}
+function renderPdSizes(){
+  var c = pdState.product;
+  var panel = document.getElementById('pdpanel-sizes');
+  if(c.sizesType==='custom_text' || !c.sizes.length){
+    panel.innerHTML = '<div style="font-family:\'Fraunces\',serif;font-size:1.3rem;color:var(--wood-dark);">Custom Sizes</div><p style="font-size:14px;color:var(--muted);margin-top:8px;max-width:520px;">This collection is built to the exact dimensions your project requires — contact our sales team with your specs.</p>';
+    return;
+  }
+  panel.innerHTML = '<ul style="margin:0;padding-left:20px;columns:2;column-gap:40px;font-size:14.5px;line-height:2.1;color:#4A3B2C;">' +
+    c.sizes.map(function(s){ return '<li>'+s+'</li>'; }).join('') + '</ul>';
+}
+function renderPdCabinet(){
+  var panel = document.getElementById('pdpanel-cabinet');
+  panel.innerHTML = '';
+  var chipRow = document.createElement('div');
+  chipRow.className = 'chip-scroll';
+  chipRow.style.cssText = 'margin-bottom:26px;';
+  var opts = [['all','All'],['painted','Painted'],['laminated','Laminated'],['thermofoil','Thermofoil']];
+  opts.forEach(function(o){
+    var chip = document.createElement('div');
+    chip.className = 'pd-subchip' + (pdState.cabFilter===o[0] ? ' active' : '');
+    chip.textContent = o[1];
+    chip.onclick = function(){ pdState.cabFilter = o[0]; renderPdCabinet(); };
+    chipRow.appendChild(chip);
+  });
+  panel.appendChild(chipRow);
+  var groupsWrap = document.createElement('div');
+  ['painted','laminated','thermofoil'].forEach(function(key){
+    if(pdState.cabFilter!=='all' && pdState.cabFilter!==key) return;
+    var heading = document.createElement('div');
+    heading.className = 'pd-group-heading';
+    heading.textContent = key.charAt(0).toUpperCase()+key.slice(1);
+    groupsWrap.appendChild(heading);
+    var row = document.createElement('div');
+    row.style.cssText = 'display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:18px;';
+    FINISHES[key].forEach(function(f){ row.appendChild(buildSwatch(f)); });
+    groupsWrap.appendChild(row);
+  });
+  panel.appendChild(groupsWrap);
+}
+function renderPdVanityTop(){
+  var panel = document.getElementById('pdpanel-vanitytop');
+  panel.innerHTML = '';
+  var chipRow = document.createElement('div');
+  chipRow.className = 'chip-scroll';
+  chipRow.style.cssText = 'margin-bottom:26px;';
+  var opts = [['all','All'],['luxury','Luxury'],['economic','Economic']];
+  opts.forEach(function(o){
+    var chip = document.createElement('div');
+    chip.className = 'pd-subchip' + (pdState.vanFilter===o[0] ? ' active' : '');
+    chip.textContent = o[1];
+    chip.onclick = function(){ pdState.vanFilter = o[0]; renderPdVanityTop(); };
+    chipRow.appendChild(chip);
+  });
+  panel.appendChild(chipRow);
+  var groupsWrap = document.createElement('div');
+  ['luxury','economic'].forEach(function(cat){
+    if(pdState.vanFilter!=='all' && pdState.vanFilter!==cat) return;
+    var items = FINISHES.tops.filter(function(f){ return f.cat===cat; });
+    if(!items.length) return;
+    var heading = document.createElement('div');
+    heading.className = 'pd-group-heading';
+    heading.textContent = cat==='luxury' ? 'Luxury' : 'Economic';
+    groupsWrap.appendChild(heading);
+    var row = document.createElement('div');
+    row.style.cssText = 'display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:18px;';
+    items.forEach(function(f){ row.appendChild(buildSwatch(f)); });
+    groupsWrap.appendChild(row);
+  });
+  panel.appendChild(groupsWrap);
+}
+
+/* ===== ROUTER ===== */
+function parseRoute(){
+  var h = location.hash;
+  if(h.indexOf('#/product/') === 0) return {type:'product', slug: h.slice(10)};
+  if(h.indexOf('#/line/') === 0) return {type:'line', key: h.slice(7)};
+  if(h === '#/collections') return {type:'collections'};
+  return null;
+}
+function showGridSections(){
+  document.getElementById('view-product').style.display = 'none';
+  document.querySelectorAll('.mw-main-section').forEach(function(s){ if(s.id!=='view-product') s.style.display=''; });
+}
+function showProductSection(){
+  document.querySelectorAll('.mw-main-section').forEach(function(s){ if(s.id!=='view-product') s.style.display='none'; });
+  document.getElementById('view-product').style.display = '';
+}
+function onRouteChange(){
+  var r = parseRoute();
+  if(!r){
+    if(document.getElementById('view-product').style.display !== 'none'){ showGridSections(); }
+    return;
+  }
+  if(r.type==='product'){
+    renderProduct(r.slug);
+    showProductSection();
+    window.scrollTo(0,0);
+  } else if(r.type==='line'){
+    currentLine = LINE_KEY_TO_NAME[r.key] || 'All';
+    renderChips(); renderGallery(); updateGalleryHeading();
+    showGridSections();
+    document.getElementById('coleccion').scrollIntoView();
+  } else if(r.type==='collections'){
+    currentLine = 'All';
+    renderChips(); renderGallery(); updateGalleryHeading();
+    showGridSections();
+    document.getElementById('coleccion').scrollIntoView();
+  }
+}
+window.addEventListener('hashchange', onRouteChange);
 
 /* ===== HERO SLIDER ===== */
 var mwSlides = document.querySelectorAll('.mw-slide');
@@ -625,7 +951,9 @@ mobileMenu.querySelectorAll('a').forEach(function(a){
 /* ===== INIT ===== */
 renderChips();
 renderGallery();
+updateGalleryHeading();
 renderFinishes();
+onRouteChange();
 </script>
 </body>
 </html>
