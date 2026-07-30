@@ -623,7 +623,6 @@ function renderGallery(){
       '</div>'+
       '<div style="padding:16px 18px;">'+
         '<div style="display:flex;justify-content:space-between;align-items:center;"><div style="font-family:\'Fraunces\',serif;font-size:1.15rem;">'+c.name+'</div><div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);">'+c.line+'</div></div>'+
-        '<div style="font-size:11.5px;color:var(--muted);margin-top:8px;line-height:1.5;">'+(c.sizesType==='custom_text'?'Custom Sizes':c.sizesDisplay)+'</div>'+
       '</div>';
     grid.appendChild(card);
     requestAnimationFrame(function(){ observeEl(card); });
