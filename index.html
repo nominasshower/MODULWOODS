@@ -670,19 +670,36 @@ function buildSwatch(f){
   requestAnimationFrame(function(){ observeEl(sw); });
   return sw;
 }
-// If a "Painted" cabinet color is clicked while viewing a product detail page,
-// tint the main product photo instead of opening the lightbox (simulated preview only —
-// we don't have real per-color photography, laminated/thermofoil textures are excluded).
+// If a cabinet-finish swatch is clicked while viewing a product detail page,
+// apply it to the main product photo instead of opening the lightbox.
+// Painted colors: flat color tint (mix-blend-mode:color) — looks accurate since it preserves shading.
+// Laminated/Thermofoil: overlay the real wood-grain texture image (mix-blend-mode:multiply) — a rougher
+// approximation since it's a texture swap, not real per-finish photography.
 function tryColorPreview(f){
   var overlay = document.getElementById('pd-color-overlay');
   var note = document.getElementById('pd-color-note');
   if(!overlay || document.getElementById('view-product').style.display==='none') return false;
   var hex = PAINT_HEX[f.name];
-  if(!hex) return false;
-  overlay.style.background = hex;
-  overlay.style.opacity = '1';
-  note.style.display = 'block';
-  return true;
+  if(hex){
+    overlay.style.backgroundImage = 'none';
+    overlay.style.background = hex;
+    overlay.style.mixBlendMode = 'color';
+    overlay.style.opacity = '1';
+    note.style.display = 'block';
+    return true;
+  }
+  var isWood = FINISHES.laminated.concat(FINISHES.thermofoil).some(function(x){ return x.name===f.name; });
+  if(isWood){
+    overlay.style.background = 'none';
+    overlay.style.backgroundImage = 'url(\''+f.img+'\')';
+    overlay.style.backgroundSize = 'cover';
+    overlay.style.backgroundPosition = 'center';
+    overlay.style.mixBlendMode = 'multiply';
+    overlay.style.opacity = '1';
+    note.style.display = 'block';
+    return true;
+  }
+  return false;
 }
 function resetColorPreview(){
   var overlay = document.getElementById('pd-color-overlay');
