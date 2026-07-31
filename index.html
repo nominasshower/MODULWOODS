@@ -60,9 +60,12 @@ input,select,textarea,button{font-family:inherit;}
 
 /* ── HERO SLIDER ── */
 .mw-slider{position:relative;height:94vh;min-height:580px;overflow:hidden;background:var(--wood-dark);}
-.mw-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1s ease;pointer-events:none;}
+.mw-slide{position:absolute;inset:0;opacity:0;transition:opacity 1s ease;pointer-events:none;background:linear-gradient(120deg,#1b120b 0%,#2c1c11 55%,#3c2717 100%);}
 .mw-slide.active{opacity:1;pointer-events:auto;}
-.mw-slide::after{content:'';position:absolute;inset:0;background:linear-gradient(95deg,rgba(20,12,7,.86) 0%,rgba(20,12,7,.52) 48%,rgba(20,12,7,.18) 100%);}
+.mw-slide::after{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(95deg,rgba(20,12,7,.94) 0%,rgba(20,12,7,.68) 40%,rgba(20,12,7,.1) 64%,rgba(20,12,7,0) 78%);pointer-events:none;}
+.mw-slide-photo{position:absolute;right:-2%;top:0;bottom:0;width:58%;z-index:0;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.mw-slide-photo::before{content:'';position:absolute;width:66%;height:66%;border-radius:50%;background:radial-gradient(closest-side,rgba(255,187,110,.24),rgba(255,187,110,0) 72%);filter:blur(26px);}
+.mw-slide-photo img{position:relative;max-width:80%;max-height:76%;object-fit:contain;filter:drop-shadow(0 35px 45px rgba(0,0,0,.55));}
 .mw-slide-content{position:absolute;top:0;bottom:0;left:0;display:flex;align-items:center;z-index:2;padding:0 clamp(20px,5vw,72px);max-width:680px;}
 .mw-slide-eyebrow{font-size:12.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:22px;}
 .mw-slide-title{font-family:'Fraunces',serif;font-weight:500;color:#fff;font-size:clamp(2.4rem,5.6vw,4.4rem);line-height:1.05;margin:0;}
@@ -129,6 +132,9 @@ footer a:hover{color:#fff!important;}
   #desktop-nav{display:none!important;}
   #quote-desktop{display:none!important;}
   .hamburger{display:flex!important;}
+  .mw-slide-photo{opacity:.35;width:80%;}
+  .mw-slide::after{background:linear-gradient(95deg,rgba(20,12,7,.94) 0%,rgba(20,12,7,.86) 60%,rgba(20,12,7,.7) 100%);}
+  .mw-slide-content{max-width:100%;}
 }
 </style>
 </head>
@@ -162,7 +168,8 @@ footer a:hover{color:#fff!important;}
 
 <!-- HERO SLIDER -->
 <section class="mw-main-section mw-slider" id="top">
-  <div class="mw-slide active" style="background-image:url('media/slide_02.png');">
+  <div class="mw-slide active">
+    <div class="mw-slide-photo"><img src="media/Athena-Espresso-Frontal.png" alt="Athena vanity cabinet"></div>
     <div class="mw-slide-content">
       <div style="animation:mwfade .9s ease both;">
         <div class="mw-slide-eyebrow">Modul Woods · Vanity Cabinets</div>
@@ -175,7 +182,8 @@ footer a:hover{color:#fff!important;}
       </div>
     </div>
   </div>
-  <div class="mw-slide" style="background-image:url('media/slide_13.png');">
+  <div class="mw-slide">
+    <div class="mw-slide-photo"><img src="media/Hiex-Montana-Frontal.png" alt="Hospitality wall-mount vanity cabinet"></div>
     <div class="mw-slide-content">
       <div>
         <div class="mw-slide-eyebrow">Hospitality Line</div>
@@ -187,7 +195,8 @@ footer a:hover{color:#fff!important;}
       </div>
     </div>
   </div>
-  <div class="mw-slide" style="background-image:url('media/slide_14.png');">
+  <div class="mw-slide">
+    <div class="mw-slide-photo"><img src="media/Aspen-Frontal.png" alt="Aspen premium vanity cabinet"></div>
     <div class="mw-slide-content">
       <div>
         <div class="mw-slide-eyebrow">Premium Line</div>
@@ -199,7 +208,8 @@ footer a:hover{color:#fff!important;}
       </div>
     </div>
   </div>
-  <div class="mw-slide" style="background-image:url('media/bg_slide_01.jpg');">
+  <div class="mw-slide">
+    <div class="mw-slide-photo"><img src="media/Berlin-Blanco-Frontal-2.png" alt="Berlin economic vanity cabinet"></div>
     <div class="mw-slide-content">
       <div>
         <div class="mw-slide-eyebrow">Economic Line</div>
