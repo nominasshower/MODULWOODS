@@ -125,10 +125,19 @@ footer a:hover{color:#fff!important;}
 .pd-group-heading:first-child{margin-top:0;}
 
 /* ── RESPONSIVE NAV ── */
-@media(max-width:860px){
+@media(max-width:750px){
   #desktop-nav{display:none!important;}
   #quote-desktop{display:none!important;}
   .hamburger{display:flex!important;}
+}
+@media(max-width:980px){
+  #quote-desktop{display:none!important;}
+  #site-header{padding-left:16px!important;padding-right:16px!important;gap:8px!important;}
+  #desktop-nav{gap:4px!important;font-size:10.5px!important;}
+  #desktop-nav .nav-link{padding:4px;}
+  #lang-btn{padding:6px 10px!important;font-size:11px!important;}
+}
+@media(max-width:860px){
   .mw-slide::after{background:linear-gradient(95deg,rgba(20,12,7,.94) 0%,rgba(20,12,7,.86) 60%,rgba(20,12,7,.7) 100%);}
   .mw-slide-content{max-width:100%;}
 }
@@ -141,12 +150,12 @@ footer a:hover{color:#fff!important;}
   <a href="#top" style="display:flex;align-items:center;gap:10px;flex-shrink:0;">
     <img src="media/logo_mw.png" alt="Modul Woods" style="height:42px;object-fit:contain;">
   </a>
-  <nav style="display:flex;align-items:center;gap:clamp(10px,1.8vw,26px);font-size:12.5px;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;" id="desktop-nav">
-    <a href="#nosotros" class="nav-link" style="color:rgba(255,255,255,0.78);" data-i18n="navAbout">About</a>
-    <a href="#lineas" class="nav-link" style="color:rgba(255,255,255,0.78);" data-i18n="navLines">Product Lines</a>
-    <a href="#cocinas" class="nav-link" style="color:rgba(255,255,255,0.78);" data-i18n="navKitchens">Kitchens</a>
+  <nav style="display:flex;align-items:center;gap:clamp(8px,1.6vw,26px);font-size:clamp(11px,1.1vw,12.5px);letter-spacing:0.1em;text-transform:uppercase;font-weight:500;white-space:nowrap;flex-shrink:1;min-width:0;" id="desktop-nav">
+    <a href="#/about" class="nav-link" style="color:rgba(255,255,255,0.78);" data-i18n="navAbout">About</a>
+    <a href="#/products" class="nav-link" style="color:rgba(255,255,255,0.78);" data-i18n="navLines">Product Lines</a>
+    <a href="#/kitchens" class="nav-link" style="color:rgba(255,255,255,0.78);" data-i18n="navKitchens">Kitchens</a>
     <a href="#/collections" class="nav-link" style="color:rgba(255,255,255,0.78);" data-i18n="navCollections">Collections</a>
-    <a href="#acabados" class="nav-link" style="color:rgba(255,255,255,0.78);" data-i18n="navFinishes">Finishes</a>
+    <a href="#/finishes" class="nav-link" style="color:rgba(255,255,255,0.78);" data-i18n="navFinishes">Finishes</a>
     <a href="#contacto" class="nav-link" style="color:rgba(255,255,255,0.78);" data-i18n="navContact">Contact</a>
   </nav>
   <div style="display:flex;align-items:center;gap:14px;flex-shrink:0;">
@@ -157,37 +166,24 @@ footer a:hover{color:#fff!important;}
   </div>
 </header>
 <div class="mobile-menu" id="mobile-menu">
-  <a href="#nosotros" data-i18n="navAbout">About</a>
-  <a href="#lineas" data-i18n="navLines">Product Lines</a>
-  <a href="#cocinas" data-i18n="navKitchens">Kitchens</a>
+  <a href="#/about" data-i18n="navAbout">About</a>
+  <a href="#/products" data-i18n="navLines">Product Lines</a>
+  <a href="#/kitchens" data-i18n="navKitchens">Kitchens</a>
   <a href="#/collections" data-i18n="navCollections">Collections</a>
-  <a href="#acabados" data-i18n="navFinishes">Finishes</a>
+  <a href="#/finishes" data-i18n="navFinishes">Finishes</a>
   <a href="#contacto" data-i18n="navContact">Contact</a>
 </div>
 
 <!-- HERO SLIDER -->
 <section class="mw-main-section mw-slider" id="top">
-  <div class="mw-slide active" style="background-image:url('media/lifestyle-shower-vanity-oak.jpg');background-position:center;">
+  <div class="mw-slide active" style="background-image:url('media/kitchen/misiones-kitchen-hero.jpg');background-position:center;">
     <div class="mw-slide-content">
       <div style="animation:mwfade .9s ease both;">
-        <div class="mw-slide-eyebrow" data-i18n="s1Eyebrow">Modul Woods · Vanity &amp; Kitchen Cabinets</div>
-        <h1 class="mw-slide-title" data-i18n="s1Title">Premium quality vanity &amp; kitchen cabinets.</h1>
-        <p class="mw-slide-sub" data-i18n="s1Sub">We specialize in vanity and kitchen cabinets tailored to your design needs — size, drawers, wall-mount or free-standing — complete with the countertop of your choice.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:16px;margin-top:36px;">
-          <a href="#/collections" style="background:var(--accent);color:#fff;padding:15px 32px;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;font-weight:600;border-radius:var(--radius);" data-i18n="s1Cta1">See our products</a>
-          <a href="#contacto" style="border:1px solid rgba(255,255,255,0.5);color:#fff;padding:15px 32px;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;font-weight:500;border-radius:var(--radius);" data-i18n="navQuote">Request a quote</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="mw-slide" style="background-image:url('media/kitchen/misiones-kitchen-hero.jpg');background-position:center;">
-    <div class="mw-slide-content">
-      <div>
         <div class="mw-slide-eyebrow" data-i18n="s2Eyebrow">Kitchen Cabinets</div>
         <h1 class="mw-slide-title" data-i18n="s2Title">Full kitchens, built to order.</h1>
         <p class="mw-slide-sub" data-i18n="s2Sub">Beyond vanities, we design and manufacture complete kitchen cabinetry — islands, tall pantry units and custom storage — finished with the countertop material of your choice.</p>
         <div style="display:flex;flex-wrap:wrap;gap:16px;margin-top:36px;">
-          <a href="#cocinas" style="background:var(--accent);color:#fff;padding:15px 32px;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;font-weight:600;border-radius:var(--radius);" data-i18n="s2Cta">See our kitchens</a>
+          <a href="#/kitchens" style="background:var(--accent);color:#fff;padding:15px 32px;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;font-weight:600;border-radius:var(--radius);" data-i18n="s2Cta">See our kitchens</a>
         </div>
       </div>
     </div>
@@ -240,7 +236,7 @@ footer a:hover{color:#fff!important;}
     <div style="min-width:130px;"><div style="font-family:'Fraunces',serif;font-size:clamp(1.9rem,2.8vw,2.6rem);line-height:1;">2018</div><div style="font-size:11.5px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-top:8px;" data-i18n="stat2">Modul Woods launched</div></div>
     <div style="min-width:130px;"><div style="font-family:'Fraunces',serif;font-size:clamp(1.9rem,2.8vw,2.6rem);line-height:1;">22</div><div style="font-size:11.5px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-top:8px;" data-i18n="stat3">Cabinet collections</div></div>
     <div style="min-width:130px;"><div style="font-family:'Fraunces',serif;font-size:clamp(1.9rem,2.8vw,2.6rem);line-height:1;">3</div><div style="font-size:11.5px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-top:8px;" data-i18n="stat4">Vanity top materials</div></div>
-    <div style="min-width:130px;"><div style="font-family:'Fraunces',serif;font-size:clamp(1.9rem,2.8vw,2.6rem);line-height:1;">Juárez, N.L.</div><div style="font-size:11.5px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-top:8px;" data-i18n="stat5">Manufacturing origin</div></div>
+    <div style="min-width:130px;"><div style="font-family:'Fraunces',serif;font-size:clamp(1.9rem,2.8vw,2.6rem);line-height:1;">Monterrey, MX</div><div style="font-size:11.5px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-top:8px;" data-i18n="stat5">Manufacturing origin</div></div>
   </div>
 </section>
 
@@ -250,25 +246,27 @@ footer a:hover{color:#fff!important;}
     <div class="mw-reveal-left">
       <div style="font-size:13px;letter-spacing:0.26em;text-transform:uppercase;color:var(--accent-dark);font-weight:600;" data-i18n="aboutEye">About us</div>
       <h2 style="font-family:'Fraunces',serif;font-weight:500;font-size:clamp(2rem,4vw,3rem);line-height:1.1;margin:16px 0 0;" data-i18n="aboutTitle">The beginning of Modul Woods.</h2>
-      <p style="font-size:clamp(15px,1.1vw,17px);line-height:1.8;color:#5C4A38;margin:22px 0 0;font-weight:300;" data-i18n="aboutP1">Modular Vanity Tops started in 2004 exclusively producing cultured marble vanity tops. After expanding into additional vanity top styles and materials, in 2018 Modul Woods launched as our premium vanity cabinet facility — created to perfect and complement our existing catalog.</p>
-      <p style="font-size:clamp(15px,1.1vw,17px);line-height:1.8;color:#5C4A38;margin:16px 0 0;font-weight:300;" data-i18n="aboutP2">Our vanity and kitchen cabinets are built for a wide range of clients within the residential, hospitality and multi-family channels. The same craftsmanship and materials extend from vanity cabinets to complete kitchens — base and tall units, islands and custom storage — letting us adapt to the needs of every project, from single homes to hotels, motels and assisted-living communities.</p>
+      <p style="font-size:clamp(15px,1.1vw,17px);line-height:1.8;color:#5C4A38;margin:22px 0 0;font-weight:300;" data-i18n="aboutP1Short">Modular Vanity Tops was founded in 2004 producing cultured marble vanity tops. In 2018 we launched Modul Woods, our custom cabinetry division — today we manufacture frameless cabinets for bathrooms and kitchens nationwide.</p>
       <div style="display:flex;flex-wrap:wrap;gap:14px 40px;margin:30px 0 0;">
-        <div><div style="font-family:'Fraunces',serif;font-size:1.35rem;">Juárez, Nuevo León</div><div style="font-size:11.5px;letter-spacing:0.13em;text-transform:uppercase;color:var(--muted);margin-top:4px;" data-i18n="aboutOfficeLabel">Corporate office</div></div>
-        <div><div style="font-family:'Fraunces',serif;font-size:1.35rem;" data-i18n="aboutChannels">Residential · Hospitality · Multi-family</div><div style="font-size:11.5px;letter-spacing:0.13em;text-transform:uppercase;color:var(--muted);margin-top:4px;" data-i18n="aboutChannelsLabel">Channels served</div></div>
+        <div><div style="font-family:'Fraunces',serif;font-size:1.35rem;">2004</div><div style="font-size:11.5px;letter-spacing:0.13em;text-transform:uppercase;color:var(--muted);margin-top:4px;" data-i18n="aboutFoundedLabel">Founded</div></div>
+        <div><div style="font-family:'Fraunces',serif;font-size:1.35rem;">400+</div><div style="font-size:11.5px;letter-spacing:0.13em;text-transform:uppercase;color:var(--muted);margin-top:4px;" data-i18n="aboutSkusLabel">SKUs</div></div>
+        <div><div style="font-family:'Fraunces',serif;font-size:1.35rem;">50+</div><div style="font-size:11.5px;letter-spacing:0.13em;text-transform:uppercase;color:var(--muted);margin-top:4px;" data-i18n="aboutColorsLabel">Colors &amp; finishes</div></div>
+        <div><div style="font-family:'Fraunces',serif;font-size:1.35rem;">95%</div><div style="font-size:11.5px;letter-spacing:0.13em;text-transform:uppercase;color:var(--muted);margin-top:4px;" data-i18n="aboutUsMarketLabel">Production for the US market</div></div>
       </div>
+      <a href="#/about" style="display:inline-block;margin-top:32px;border:1px solid var(--wood-dark);color:var(--wood-dark);padding:14px 30px;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;font-weight:600;border-radius:var(--radius);" data-i18n="aboutMoreBtn">Learn more about us</a>
     </div>
     <div class="mw-reveal-right" style="aspect-ratio:4/5;border-radius:var(--radius);overflow:hidden;box-shadow:0 30px 60px rgba(36,22,16,0.16);">
-      <img src="media/building-exterior.jpg" alt="Modul Woods manufacturing facility" style="width:100%;height:100%;object-fit:cover;">
+      <img src="media/building-exterior-aerial.png" alt="Modul Woods manufacturing facility" style="width:100%;height:100%;object-fit:cover;">
     </div>
   </div>
 </section>
 
-<!-- PRODUCT LINES -->
-<section class="mw-main-section" id="lineas" style="padding:clamp(64px,9vw,110px) clamp(20px,5vw,56px);background:#FFFFFF;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+<!-- PRODUCT LINES (full page) -->
+<section class="mw-main-section" id="lineas" style="display:none;padding:clamp(110px,9vw,140px) clamp(20px,5vw,56px) clamp(64px,9vw,110px);background:#FFFFFF;">
   <div style="max-width:1280px;margin:0 auto;">
     <div class="mw-reveal" style="max-width:640px;">
       <div style="font-size:13px;letter-spacing:0.26em;text-transform:uppercase;color:var(--accent-dark);font-weight:600;" data-i18n="linesEye">Our products</div>
-      <h2 style="font-family:'Fraunces',serif;font-weight:500;font-size:clamp(2rem,4vw,3rem);line-height:1.1;margin:16px 0 0;" data-i18n="linesTitle">Bathroom vanity cabinets, three ways.</h2>
+      <h1 style="font-family:'Fraunces',serif;font-weight:500;font-size:clamp(2rem,4vw,3rem);line-height:1.1;margin:16px 0 0;" data-i18n="linesTitle">Bathroom vanity cabinets, three ways.</h1>
       <p style="font-size:clamp(15px,1.1vw,17px);line-height:1.75;color:#5C4A38;margin:16px 0 0;font-weight:300;" data-i18n="linesSub">Every project falls into one of our three product lines — explore each below, then browse the full collection gallery.</p>
     </div>
     <div class="mw-stagger" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:26px;margin-top:48px;">
@@ -297,12 +295,48 @@ footer a:hover{color:#fff!important;}
   </div>
 </section>
 
-<!-- KITCHENS -->
-<section class="mw-main-section" id="cocinas" style="padding:clamp(64px,9vw,110px) clamp(20px,5vw,56px);background:var(--cream);">
+<!-- INSPIRATION STRIP -->
+<section class="mw-main-section" style="padding:clamp(64px,9vw,110px) clamp(20px,5vw,56px);background:var(--cream);">
+  <div style="max-width:1280px;margin:0 auto;">
+    <div class="mw-reveal" style="max-width:680px;">
+      <div style="font-size:13px;letter-spacing:0.26em;text-transform:uppercase;color:var(--accent-dark);font-weight:600;" data-i18n="inspEye">Beyond the vanity</div>
+      <h2 style="font-family:'Fraunces',serif;font-weight:500;font-size:clamp(2rem,4vw,3rem);line-height:1.1;margin:16px 0 0;" data-i18n="inspTitle">Every room, one workshop.</h2>
+    </div>
+    <div class="mw-stagger" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px;margin-top:44px;">
+      <a href="#/kitchens" style="display:block;border-radius:var(--radius);overflow:hidden;position:relative;aspect-ratio:4/5;box-shadow:0 20px 44px rgba(36,22,16,0.14);">
+        <img src="media/kitchen/misiones-kitchen-hero.jpg" alt="Modul Woods kitchens" style="width:100%;height:100%;object-fit:cover;">
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(24,15,10,0.82),rgba(24,15,10,0.05) 55%);"></div>
+        <div style="position:absolute;left:0;right:0;bottom:0;padding:28px;color:#fff;">
+          <div style="font-size:11.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);font-weight:600;" data-i18n="inspKitEye">Kitchens</div>
+          <div style="font-family:'Fraunces',serif;font-size:1.4rem;line-height:1.2;margin-top:8px;" data-i18n="inspKitPhrase">Built for real cooking, real families.</div>
+        </div>
+      </a>
+      <div style="display:block;border-radius:var(--radius);overflow:hidden;position:relative;aspect-ratio:4/5;box-shadow:0 20px 44px rgba(36,22,16,0.14);">
+        <img src="media/san-nicolas/cocina-aerea.jpg" alt="Modul Woods projects" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;">
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(24,15,10,0.82),rgba(24,15,10,0.05) 55%);"></div>
+        <div style="position:absolute;left:0;right:0;bottom:0;padding:28px;color:#fff;">
+          <div style="font-size:11.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);font-weight:600;" data-i18n="inspProjEye">Projects</div>
+          <div style="font-family:'Fraunces',serif;font-size:1.4rem;line-height:1.2;margin-top:8px;" data-i18n="inspProjPhrase">From single homes to full developments.</div>
+        </div>
+      </div>
+      <a href="#/collections" style="display:block;border-radius:var(--radius);overflow:hidden;position:relative;aspect-ratio:4/5;box-shadow:0 20px 44px rgba(36,22,16,0.14);">
+        <img src="media/san-nicolas/closet.jpg" alt="Modul Woods cabinets" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;">
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(24,15,10,0.82),rgba(24,15,10,0.05) 55%);"></div>
+        <div style="position:absolute;left:0;right:0;bottom:0;padding:28px;color:#fff;">
+          <div style="font-size:11.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);font-weight:600;" data-i18n="inspCabEye">Cabinets</div>
+          <div style="font-family:'Fraunces',serif;font-size:1.4rem;line-height:1.2;margin-top:8px;" data-i18n="inspCabPhrase">Finished down to the last hinge.</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- KITCHENS FULL PAGE -->
+<section class="mw-main-section" id="view-kitchens" style="display:none;padding:clamp(110px,9vw,140px) clamp(20px,5vw,56px) clamp(64px,9vw,110px);">
   <div style="max-width:1280px;margin:0 auto;">
     <div class="mw-reveal" style="max-width:680px;">
       <div style="font-size:13px;letter-spacing:0.26em;text-transform:uppercase;color:var(--accent-dark);font-weight:600;" data-i18n="kitEye">Kitchen cabinets</div>
-      <h2 style="font-family:'Fraunces',serif;font-weight:500;font-size:clamp(2rem,4vw,3rem);line-height:1.1;margin:16px 0 0;" data-i18n="kitTitle">Integral kitchens that adapt to every need.</h2>
+      <h1 style="font-family:'Fraunces',serif;font-weight:500;font-size:clamp(2rem,4vw,3rem);line-height:1.1;margin:16px 0 0;" data-i18n="kitTitle">Integral kitchens that adapt to every need.</h1>
       <p style="font-size:clamp(15px,1.1vw,17px);line-height:1.75;color:#5C4A38;margin:16px 0 0;font-weight:300;" data-i18n="kitSub">Vanity cabinets are only part of what we build. Our shop also manufactures complete, frameless kitchen cabinetry — base and tall units, islands, glass-front uppers and interior storage — in standard designs as well as ADA-compliant layouts, for residential, multifamily and hospitality projects like this recent build below.</p>
     </div>
     <div class="mw-stagger" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;margin-top:44px;">
@@ -339,11 +373,11 @@ footer a:hover{color:#fff!important;}
 </section>
 
 <!-- COLLECTIONS GALLERY -->
-<section class="mw-main-section" id="coleccion" style="padding:clamp(64px,9vw,110px) clamp(20px,5vw,56px);">
+<section class="mw-main-section" id="coleccion" style="display:none;padding:clamp(110px,9vw,140px) clamp(20px,5vw,56px) clamp(64px,9vw,110px);">
   <div style="max-width:1280px;margin:0 auto;">
     <div class="mw-reveal" style="max-width:640px;">
       <div id="gallery-eyebrow" style="font-size:13px;letter-spacing:0.26em;text-transform:uppercase;color:var(--accent-dark);font-weight:600;">Collections</div>
-      <h2 id="gallery-title" style="font-family:'Fraunces',serif;font-weight:500;font-size:clamp(2rem,4vw,3rem);line-height:1.1;margin:16px 0 0;">22 collections to choose from.</h2>
+      <h2 id="gallery-title" style="font-family:'Fraunces',serif;font-weight:500;font-size:clamp(2rem,4vw,3rem);line-height:1.1;margin:16px 0 0;">Find the right fit for your project.</h2>
       <p id="gallery-sub" style="font-size:clamp(15px,1.1vw,17px);line-height:1.75;color:#5C4A38;margin:16px 0 0;font-weight:300;">Filter by product line to find the collection that fits your project.</p>
     </div>
     <div class="chip-scroll" id="line-filters" style="margin:38px 0 30px;"></div>
@@ -396,11 +430,30 @@ footer a:hover{color:#fff!important;}
   </div>
 </section>
 
-<!-- WHY MODUL WOODS -->
-<section class="mw-main-section" style="padding:clamp(64px,9vw,110px) clamp(20px,5vw,56px);background:#FFFFFF;border-top:1px solid var(--line);">
+<!-- ABOUT FULL PAGE -->
+<section class="mw-main-section" id="view-about" style="display:none;padding:clamp(110px,9vw,140px) clamp(20px,5vw,56px) clamp(64px,9vw,110px);">
   <div style="max-width:1280px;margin:0 auto;">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(36px,5vw,66px);">
-      <div class="mw-reveal-left">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:clamp(36px,5vw,76px);align-items:center;">
+      <div>
+        <div style="font-size:13px;letter-spacing:0.26em;text-transform:uppercase;color:var(--accent-dark);font-weight:600;" data-i18n="aboutEye">About us</div>
+        <h1 style="font-family:'Fraunces',serif;font-weight:500;font-size:clamp(2rem,4vw,3rem);line-height:1.1;margin:16px 0 0;" data-i18n="aboutTitle">The beginning of Modul Woods.</h1>
+        <p style="font-size:clamp(15px,1.1vw,17px);line-height:1.8;color:#5C4A38;margin:22px 0 0;font-weight:300;" data-i18n="aboutP1">Modular Vanity Tops was founded in 2004, specializing in the manufacturing of high-quality cultured marble vanity tops. Over the years, we expanded our product portfolio to include additional vanity top styles and materials, continually evolving to meet the needs of our customers. In 2018, we launched Modul Woods, our custom cabinetry division, extending our expertise beyond countertops to include premium vanity and kitchen cabinets. Today, we manufacture frameless cabinetry for bathrooms and kitchens, offering vanity cabinets, base and wall cabinets, tall pantry units, islands, and custom storage solutions.</p>
+        <p style="font-size:clamp(15px,1.1vw,17px);line-height:1.8;color:#5C4A38;margin:16px 0 0;font-weight:300;" data-i18n="aboutP2">Our products serve residential, hospitality, multifamily, senior living, and commercial projects, providing customers with a complete, coordinated solution from a single manufacturing partner. Whether supplying a single home or a large-scale hotel or multifamily development, we are committed to delivering exceptional craftsmanship, dependable quality, and innovative designs that bring every space to life.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:14px 40px;margin:30px 0 0;">
+          <div><div style="font-family:'Fraunces',serif;font-size:1.35rem;">2004</div><div style="font-size:11.5px;letter-spacing:0.13em;text-transform:uppercase;color:var(--muted);margin-top:4px;" data-i18n="aboutFoundedLabel">Founded</div></div>
+          <div><div style="font-family:'Fraunces',serif;font-size:1.35rem;">400+</div><div style="font-size:11.5px;letter-spacing:0.13em;text-transform:uppercase;color:var(--muted);margin-top:4px;" data-i18n="aboutSkusLabel">SKUs</div></div>
+          <div><div style="font-family:'Fraunces',serif;font-size:1.35rem;">50+</div><div style="font-size:11.5px;letter-spacing:0.13em;text-transform:uppercase;color:var(--muted);margin-top:4px;" data-i18n="aboutColorsLabel">Colors &amp; finishes</div></div>
+          <div><div style="font-family:'Fraunces',serif;font-size:1.35rem;">95%</div><div style="font-size:11.5px;letter-spacing:0.13em;text-transform:uppercase;color:var(--muted);margin-top:4px;" data-i18n="aboutUsMarketLabel">Production for the US market</div></div>
+          <div><div style="font-family:'Fraunces',serif;font-size:1.35rem;" data-i18n="aboutChannels">Residential · Hospitality · Multi-family</div><div style="font-size:11.5px;letter-spacing:0.13em;text-transform:uppercase;color:var(--muted);margin-top:4px;" data-i18n="aboutChannelsLabel">Channels served</div></div>
+        </div>
+      </div>
+      <div style="aspect-ratio:4/5;border-radius:var(--radius);overflow:hidden;box-shadow:0 30px 60px rgba(36,22,16,0.16);">
+        <img src="media/building-exterior-aerial.png" alt="Modul Woods manufacturing facility" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+    </div>
+
+    <div style="margin-top:80px;padding-top:56px;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(36px,5vw,66px);">
+      <div>
         <div style="font-size:13px;letter-spacing:0.26em;text-transform:uppercase;color:var(--accent-dark);font-weight:600;" data-i18n="whyEye">Why Modul Woods</div>
         <h2 style="font-family:'Fraunces',serif;font-weight:500;font-size:clamp(1.9rem,4vw,2.8rem);line-height:1.1;margin:16px 0 0;" data-i18n="whyTitle">Every cabinet, made to order.</h2>
         <p style="font-size:clamp(15px,1.1vw,17px);line-height:1.75;color:#5C4A38;margin:18px 0 0;font-weight:300;" data-i18n="whySub">Our cabinets can be tailored to your specifications — size, number of drawers, wall-mount or free-standing — with the ability to include the countertop of your choice, for both vanities and kitchens. Tops come in cultured marble, cultured granite, and quartz.</p>
@@ -428,12 +481,12 @@ footer a:hover{color:#fff!important;}
   </div>
 </section>
 
-<!-- FINISHES -->
-<section class="mw-main-section" id="acabados" style="padding:clamp(64px,9vw,110px) clamp(20px,5vw,56px);background:var(--cream);">
+<!-- FINISHES FULL PAGE -->
+<section class="mw-main-section" id="view-finishes" style="display:none;padding:clamp(110px,9vw,140px) clamp(20px,5vw,56px) clamp(64px,9vw,110px);">
   <div style="max-width:1280px;margin:0 auto;">
     <div class="mw-reveal" style="max-width:680px;margin-bottom:46px;">
       <div style="font-size:13px;letter-spacing:0.26em;text-transform:uppercase;color:var(--accent-dark);font-weight:600;" data-i18n="finEye">Finishes &amp; materials</div>
-      <h2 style="font-family:'Fraunces',serif;font-weight:500;font-size:clamp(2rem,4vw,3rem);line-height:1.1;margin:16px 0 0;" data-i18n="finTitle">Cabinet finishes and vanity tops.</h2>
+      <h1 style="font-family:'Fraunces',serif;font-weight:500;font-size:clamp(2rem,4vw,3rem);line-height:1.1;margin:16px 0 0;" data-i18n="finTitle">Cabinet finishes and vanity tops.</h1>
     </div>
     <div style="display:flex;gap:36px;border-bottom:2px solid var(--line);margin-bottom:44px;flex-wrap:wrap;">
       <button class="tab-btn active" id="tab-painted" onclick="mwTab('painted')" data-i18n="finTabPainted">Painted</button>
@@ -469,32 +522,19 @@ footer a:hover{color:#fff!important;}
       <p style="font-size:clamp(15px,1.1vw,17px);line-height:1.75;color:#5C4A38;margin:18px 0 0;font-weight:300;max-width:420px;" data-i18n="contactSub">Got a question, query, problem or something you need to tell us? Our team is ready to help.</p>
       <div style="margin-top:34px;display:flex;flex-direction:column;gap:22px;">
         <div>
-          <div style="font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);" data-i18n="contactOfficeLabel">Corporate office</div>
-          <div style="font-family:'Fraunces',serif;font-size:1.05rem;margin-top:6px;">KM 5.2, Carr. a San Mateo KM 5.2 67250-Interior B<br>67250 Cdad. Benito Juárez, N.L.</div>
+          <div style="font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);" data-i18n="contactOfficeLabel">Locations</div>
+          <div style="font-family:'Fraunces',serif;font-size:1.05rem;margin-top:6px;">Manufacturing in Monterrey, MX<br>Distribution in Laredo, TX</div>
         </div>
         <div>
           <div style="font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);" data-i18n="contactTollLabel">Toll free</div>
           <div style="font-size:15px;margin-top:6px;font-weight:400;line-height:1.7;">
-            <a href="tel:+18665449477" style="color:var(--accent-dark);">866 544 9477</a><br>
-            <a href="tel:+18552193751" style="color:var(--accent-dark);">855 219 3751</a>
-          </div>
-        </div>
-        <div>
-          <div style="font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);">VP Sales — Ignacio Fuentes</div>
-          <div style="font-size:15px;margin-top:6px;font-weight:400;line-height:1.7;">
-            956 212 5476 · <a href="mailto:ignaciof@modular-tops.com" style="color:var(--accent-dark);">ignaciof@modular-tops.com</a>
-          </div>
-        </div>
-        <div>
-          <div style="font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);">Key Accounts — Andrea Peña</div>
-          <div style="font-size:15px;margin-top:6px;font-weight:400;line-height:1.7;">
-            832 426 2576 · <a href="mailto:andrea.pena@modular-tops.com" style="color:var(--accent-dark);">andrea.pena@modular-tops.com</a>
+            <a href="tel:+18665449477" style="color:var(--accent-dark);">866 544 9477</a>
           </div>
         </div>
         <div>
           <div style="font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);" data-i18n="contactServiceLabel">Customer service</div>
           <div style="font-size:15px;margin-top:6px;font-weight:400;">
-            <a href="mailto:sales1@modular-tops.com" style="color:var(--accent-dark);">sales1@modular-tops.com</a>
+            <a href="mailto:sales1@modul-woods.com" style="color:var(--accent-dark);">sales1@modul-woods.com</a>
           </div>
         </div>
       </div>
@@ -529,25 +569,25 @@ footer a:hover{color:#fff!important;}
   <div style="max-width:1280px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:30px;">
     <div style="max-width:340px;">
       <img src="media/logo_mw.png" alt="Modul Woods" style="height:38px;object-fit:contain;margin-bottom:16px;filter:brightness(0) invert(1);opacity:0.9;">
-      <p style="font-size:13.5px;line-height:1.7;color:rgba(255,255,255,0.5);" data-i18n="footerDesc">Premium quality vanity &amp; kitchen cabinets for residential, hospitality and multi-family projects. Manufactured in Juárez, Nuevo León, México.</p>
+      <p style="font-size:13.5px;line-height:1.7;color:rgba(255,255,255,0.5);" data-i18n="footerDesc">Premium quality vanity &amp; kitchen cabinets for residential, hospitality and multi-family projects. Manufacturing in Monterrey, MX. Distribution in Laredo, TX.</p>
     </div>
     <div style="display:flex;gap:clamp(30px,6vw,80px);flex-wrap:wrap;">
       <div>
         <div style="font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:14px;" data-i18n="footerSiteLabel">Site</div>
         <div style="display:flex;flex-direction:column;gap:10px;font-size:13.5px;">
-          <a href="#nosotros" style="color:rgba(255,255,255,0.65);" data-i18n="navAbout">About</a>
-          <a href="#lineas" style="color:rgba(255,255,255,0.65);" data-i18n="navLines">Product lines</a>
-          <a href="#cocinas" style="color:rgba(255,255,255,0.65);" data-i18n="navKitchens">Kitchens</a>
+          <a href="#/about" style="color:rgba(255,255,255,0.65);" data-i18n="navAbout">About</a>
+          <a href="#/products" style="color:rgba(255,255,255,0.65);" data-i18n="navLines">Product lines</a>
+          <a href="#/kitchens" style="color:rgba(255,255,255,0.65);" data-i18n="navKitchens">Kitchens</a>
           <a href="#/collections" style="color:rgba(255,255,255,0.65);" data-i18n="navCollections">Collections</a>
-          <a href="#acabados" style="color:rgba(255,255,255,0.65);" data-i18n="navFinishes">Finishes</a>
+          <a href="#/finishes" style="color:rgba(255,255,255,0.65);" data-i18n="navFinishes">Finishes</a>
         </div>
       </div>
       <div>
         <div style="font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:14px;" data-i18n="navContact">Contact</div>
         <div style="display:flex;flex-direction:column;gap:10px;font-size:13.5px;">
           <a href="tel:+18665449477" style="color:rgba(255,255,255,0.65);">866 544 9477</a>
-          <a href="mailto:sales1@modular-tops.com" style="color:rgba(255,255,255,0.65);">sales1@modular-tops.com</a>
-          <span>Juárez, Nuevo León, México</span>
+          <a href="mailto:sales1@modul-woods.com" style="color:rgba(255,255,255,0.65);">sales1@modul-woods.com</a>
+          <span>Monterrey, MX · Laredo, TX</span>
         </div>
       </div>
     </div>
@@ -567,7 +607,7 @@ footer a:hover{color:#fff!important;}
 var lang = 'en';
 var translations = {
   en: {
-    navAbout:'About', navLines:'Product Lines', navKitchens:'Kitchens', navCollections:'Collections', navFinishes:'Finishes', navContact:'Contact',
+    navAbout:'About', navLines:'Products', navKitchens:'Kitchens', navCollections:'Collections', navFinishes:'Finishes', navContact:'Contact',
     navQuote:'Request a quote', navQuoteMobile:'Get a quote',
     s1Eyebrow:'Modul Woods · Vanity & Kitchen Cabinets', s1Title:'Premium quality vanity & kitchen cabinets.', s1Sub:'We specialize in vanity and kitchen cabinets tailored to your design needs — size, drawers, wall-mount or free-standing — complete with the countertop of your choice.', s1Cta1:'See our products',
     s2Eyebrow:'Kitchen Cabinets', s2Title:'Full kitchens, built to order.', s2Sub:'Beyond vanities, we design and manufacture complete kitchen cabinetry — islands, tall pantry units and custom storage — finished with the countertop material of your choice.', s2Cta:'See our kitchens',
@@ -577,32 +617,40 @@ var translations = {
     seeCollections:'See collections',
     stat1:'Modular Vanity Tops founded', stat2:'Modul Woods launched', stat3:'Cabinet collections', stat4:'Vanity top materials', stat5:'Manufacturing origin',
     aboutEye:'About us', aboutTitle:'The beginning of Modul Woods.',
-    aboutP1:'Modular Vanity Tops started in 2004 exclusively producing cultured marble vanity tops. After expanding into additional vanity top styles and materials, in 2018 Modul Woods launched as our premium vanity cabinet facility — created to perfect and complement our existing catalog.',
-    aboutP2:'Our vanity and kitchen cabinets are built for a wide range of clients within the residential, hospitality and multi-family channels. The same craftsmanship and materials extend from vanity cabinets to complete kitchens — base and tall units, islands and custom storage — letting us adapt to the needs of every project, from single homes to hotels, motels and assisted-living communities.',
+    aboutP1:'Modular Vanity Tops was founded in 2004, specializing in the manufacturing of high-quality cultured marble vanity tops. Over the years, we expanded our product portfolio to include additional vanity top styles and materials, continually evolving to meet the needs of our customers. In 2018, we launched Modul Woods, our custom cabinetry division, extending our expertise beyond countertops to include premium vanity and kitchen cabinets. Today, we manufacture frameless cabinetry for bathrooms and kitchens, offering vanity cabinets, base and wall cabinets, tall pantry units, islands, and custom storage solutions.',
+    aboutP2:'Our products serve residential, hospitality, multifamily, senior living, and commercial projects, providing customers with a complete, coordinated solution from a single manufacturing partner. Whether supplying a single home or a large-scale hotel or multifamily development, we are committed to delivering exceptional craftsmanship, dependable quality, and innovative designs that bring every space to life.',
     aboutOfficeLabel:'Corporate office', aboutChannels:'Residential · Hospitality · Multi-family', aboutChannelsLabel:'Channels served',
+    aboutFoundedLabel:'Founded', aboutSkusLabel:'SKUs', aboutColorsLabel:'Colors & finishes', aboutUsMarketLabel:'Production for the US market',
+    aboutP1Short:'Modular Vanity Tops was founded in 2004 producing cultured marble vanity tops. In 2018 we launched Modul Woods, our custom cabinetry division — today we manufacture frameless cabinets for bathrooms and kitchens nationwide.', aboutMoreBtn:'Learn more about us',
     linesEye:'Our products', linesTitle:'Bathroom vanity cabinets, three ways.', linesSub:'Every project falls into one of our three product lines — explore each below, then browse the full collection gallery.',
     lineHospSub:'Hotels, motels & multi-family properties.', linePremSub:'Refined finishes for residential design.', lineEssSub:'Great style, every budget.',
     kitEye:'Kitchen cabinets', kitTitle:'Integral kitchens that adapt to every need.', kitSub:'Vanity cabinets are only part of what we build. Our shop also manufactures complete, frameless kitchen cabinetry — base and tall units, islands, glass-front uppers and interior storage — in standard designs as well as ADA-compliant layouts, for residential, multifamily and hospitality projects like this recent build below.',
+    kitTeaserSub:'Beyond vanities, our shop manufactures complete, frameless kitchen cabinetry — base and tall units, islands, glass-front uppers and custom storage — for residential, multifamily and hospitality projects.', kitMoreBtn:'See our kitchens',
+    inspEye:'Beyond the vanity', inspTitle:'Every room, one workshop.',
+    inspKitEye:'Kitchens', inspKitPhrase:'Built for real cooking, real families.',
+    inspProjEye:'Projects', inspProjPhrase:'From single homes to full developments.',
+    inspCabEye:'Cabinets', inspCabPhrase:'Finished down to the last hinge.',
     kitFact1:'<strong style="color:var(--wood-dark);">Frameless</strong> construction', kitFact2:'<strong style="color:var(--wood-dark);">Soft-close</strong> hinges & drawers', kitFact3:'<strong style="color:var(--wood-dark);">5–6 weeks</strong> lead time on custom projects', kitFact4:'Paired with <strong style="color:var(--wood-dark);">quartz, cultured marble or granite</strong> countertops',
     kitCtaQuote:'Request a kitchen quote', kitCtaCatalog:'Download kitchen catalog',
     pdSpecTitle:'Product Spec', pdTopsTitle:'Vanity Tops Options', pdTabSizes:'Sizes', pdTabCabinet:'Color Cabinet', pdTabVanityTop:'Color Vanity Top', pdColorNote:'Simulated color preview — actual finish may vary.',
     whyEye:'Why Modul Woods', whyTitle:'Every cabinet, made to order.', whySub:'Our cabinets can be tailored to your specifications — size, number of drawers, wall-mount or free-standing — with the ability to include the countertop of your choice, for both vanities and kitchens. Tops come in cultured marble, cultured granite, and quartz.',
     why1:'Soft-close hinges and drawers on every cabinet', why2:'Painted MDF, laminated MDF or thermofoil construction', why3:'Wall-mounted or free-standing configurations', why4:'Vanity tops in quartz, cultured marble or cultured granite', why5:'Custom sizing for center and double-sink configurations', why6:'Full kitchen cabinetry — islands, tall units and interior storage', why7:'Custom closets — drawers, hanging rods and open shelving', why8:'Engineered for residential, hospitality & multi-family use', why9:'The complete vanity combo — cabinet and top from one source',
     finEye:'Finishes & materials', finTitle:'Cabinet finishes and vanity tops.', finTabPainted:'Painted', finTabLaminated:'Laminated', finTabThermofoil:'Thermofoil', finTabTops:'Vanity Tops',
+    finTeaserSub:'Painted, laminated or thermofoil cabinets, paired with quartz, cultured marble or cultured granite tops — explore the full palette of finishes and materials.', finMoreBtn:'See all finishes',
     ctaEye:'Customer satisfaction', ctaTitle:'We are committed to customer satisfaction.', ctaSub:'Our sales team can help you with the request for samples and any question about our vanity cabinet collections.', ctaBtn:'Contact us',
     contactEye:'Contact', contactTitle:'Send us a message.', contactSub:'Got a question, query, problem or something you need to tell us? Our team is ready to help.',
-    contactOfficeLabel:'Corporate office', contactTollLabel:'Toll free', contactServiceLabel:'Customer service',
+    contactOfficeLabel:'Locations', contactTollLabel:'Toll free', contactServiceLabel:'Customer service',
     fName:'Full name', fEmail:'E-mail', fPhone:'Phone', fMessage:'Message', fSend:'Send message', fSending:'Sending…', fThanks:'Thank you — we have received your message. An advisor will contact you shortly.', fError:'Something went wrong. Please try again, or email us at sales1@modul-woods.com.',
-    footerDesc:'Premium quality vanity & kitchen cabinets for residential, hospitality and multi-family projects. Manufactured in Juárez, Nuevo León, México.', footerSiteLabel:'Site', footerCopy:'© 2026 Modul Woods. Internal reference site — not affiliated with any external hosting.',
+    footerDesc:'Premium quality vanity & kitchen cabinets for residential, hospitality and multi-family projects. Manufacturing in Monterrey, MX. Distribution in Laredo, TX.', footerSiteLabel:'Site', footerCopy:'© 2026 Modul Woods. Internal reference site — not affiliated with any external hosting.',
     breadcrumbHome:'Home', breadcrumbProducts:'Products',
-    galAll:'Collections', galAllTitle:'22 collections to choose from.', galAllSub:'Filter by product line to find the collection that fits your project.',
+    galAll:'Collections', galAllTitle:'Find the right fit for your project.', galAllSub:'Filter by product line to find the collection that fits your project.',
     galFilteredSub:'Showing only the {line} line. Choose a different product line above to switch.',
     customSizesTitle:'Custom Sizes', customSizesDesc:'This collection is built to the exact dimensions your project requires — contact our sales team with your specs.',
     chipAll:'All', chipPainted:'Painted', chipLaminated:'Laminated', chipThermofoil:'Thermofoil', chipLuxury:'Luxury', chipEssential:'Essential',
     lineNames:{Hospitality:'Hospitality', Premium:'Premium', 'Essential Line':'Essential Line'}
   },
   es: {
-    navAbout:'Nosotros', navLines:'Líneas de Producto', navKitchens:'Cocinas', navCollections:'Colecciones', navFinishes:'Acabados', navContact:'Contacto',
+    navAbout:'Nosotros', navLines:'Productos', navKitchens:'Cocinas', navCollections:'Colecciones', navFinishes:'Acabados', navContact:'Contacto',
     navQuote:'Solicitar cotización', navQuoteMobile:'Cotizar',
     s1Eyebrow:'Modul Woods · Gabinetes de Tocador y Cocina', s1Title:'Gabinetes de tocador y cocina de calidad premium.', s1Sub:'Nos especializamos en gabinetes de tocador y cocina hechos a la medida de tu proyecto — tamaño, cajones, montado en pared o de piso — completos con la cubierta de tu elección.', s1Cta1:'Ver nuestros productos',
     s2Eyebrow:'Gabinetes de Cocina', s2Title:'Cocinas completas, hechas a la medida.', s2Sub:'Además de tocadores, diseñamos y fabricamos gabinetes de cocina completos — islas, torres altas y almacenamiento a la medida — terminados con el material de cubierta que elijas.', s2Cta:'Ver nuestras cocinas',
@@ -612,25 +660,33 @@ var translations = {
     seeCollections:'Ver colecciones',
     stat1:'Fundación de Modular Vanity Tops', stat2:'Lanzamiento de Modul Woods', stat3:'Colecciones de gabinetes', stat4:'Materiales de cubierta', stat5:'Origen de fabricación',
     aboutEye:'Nosotros', aboutTitle:'Los inicios de Modul Woods.',
-    aboutP1:'Modular Vanity Tops inició en 2004 produciendo exclusivamente cubiertas de tocador en mármol cultivado. Después de expandirse a más estilos y materiales de cubierta, en 2018 Modul Woods se lanzó como nuestra planta premium de gabinetes de tocador — creada para perfeccionar y complementar nuestro catálogo existente.',
-    aboutP2:'Nuestros gabinetes de tocador y cocina se fabrican para una amplia gama de clientes en los canales residencial, hotelero y multifamiliar. La misma calidad y materiales se extienden de los gabinetes de tocador a cocinas completas — muebles bajos y altos, islas y almacenamiento a la medida — permitiéndonos adaptarnos a las necesidades de cada proyecto, desde casas hasta hoteles, moteles y residencias asistidas.',
+    aboutP1:'Modular Vanity Tops se fundó en 2004, especializándose en la fabricación de cubiertas de tocador en mármol cultivado de alta calidad. Con los años, expandimos nuestro portafolio para incluir más estilos y materiales de cubierta, evolucionando continuamente para cubrir las necesidades de nuestros clientes. En 2018 lanzamos Modul Woods, nuestra división de gabinetes a la medida, extendiendo nuestra experiencia más allá de las cubiertas para incluir gabinetes premium de tocador y cocina. Hoy fabricamos gabinetes sin marco para baños y cocinas, ofreciendo gabinetes de tocador, muebles bajos y altos, torres de almacenamiento, islas y soluciones de almacenamiento a la medida.',
+    aboutP2:'Nuestros productos sirven a proyectos residenciales, hoteleros, multifamiliares, de vida asistida y comerciales, brindando a los clientes una solución completa y coordinada desde un solo socio de manufactura. Ya sea abasteciendo una sola casa o un desarrollo hotelero o multifamiliar de gran escala, estamos comprometidos a entregar una artesanía excepcional, calidad confiable y diseños innovadores que dan vida a cada espacio.',
     aboutOfficeLabel:'Oficina corporativa', aboutChannels:'Residencial · Hotelero · Multifamiliar', aboutChannelsLabel:'Canales atendidos',
+    aboutFoundedLabel:'Fundación', aboutSkusLabel:'SKUs', aboutColorsLabel:'Colores y acabados', aboutUsMarketLabel:'Producción para el mercado de EE.UU.',
+    aboutP1Short:'Modular Vanity Tops se fundó en 2004 produciendo cubiertas de tocador en mármol cultivado. En 2018 lanzamos Modul Woods, nuestra división de gabinetes a la medida — hoy fabricamos gabinetes sin marco para baños y cocinas a nivel nacional.', aboutMoreBtn:'Conoce más sobre nosotros',
     linesEye:'Nuestros productos', linesTitle:'Gabinetes de tocador, de tres formas.', linesSub:'Cada proyecto entra en una de nuestras tres líneas de producto — explora cada una y después navega la galería completa de colecciones.',
     lineHospSub:'Hoteles, moteles y propiedades multifamiliares.', linePremSub:'Acabados refinados para diseño residencial.', lineEssSub:'Buen estilo, para todo presupuesto.',
     kitEye:'Gabinetes de cocina', kitTitle:'Cocinas integrales que se adaptan a cada necesidad.', kitSub:'Los gabinetes de tocador son solo una parte de lo que fabricamos. Nuestro taller también fabrica gabinetes de cocina completos, sin marco — muebles bajos y altos, islas, alacenas con vidrio y almacenamiento interior — en diseños estándar y también diseños ADA, para proyectos residenciales, multifamiliares y de hospitalidad como esta obra reciente.',
+    kitTeaserSub:'Más allá de los tocadores, nuestro taller fabrica gabinetes de cocina completos, sin marco — muebles bajos y altos, islas, alacenas con vidrio y almacenamiento a la medida — para proyectos residenciales, multifamiliares y de hospitalidad.', kitMoreBtn:'Ver nuestras cocinas',
+    inspEye:'Más allá del tocador', inspTitle:'Cada espacio, un solo taller.',
+    inspKitEye:'Cocinas', inspKitPhrase:'Hechas para cocinar de verdad, en familia.',
+    inspProjEye:'Proyectos', inspProjPhrase:'Desde una casa hasta un desarrollo completo.',
+    inspCabEye:'Gabinetes', inspCabPhrase:'Terminados hasta el último detalle.',
     kitFact1:'Construcción <strong style="color:var(--wood-dark);">sin marco</strong>', kitFact2:'Bisagras y cajones de <strong style="color:var(--wood-dark);">cierre suave</strong>', kitFact3:'<strong style="color:var(--wood-dark);">5-6 semanas</strong> de entrega en proyectos custom', kitFact4:'Combinable con cubiertas de <strong style="color:var(--wood-dark);">cuarzo, mármol o granito cultivado</strong>',
     kitCtaQuote:'Cotizar cocina', kitCtaCatalog:'Descargar catálogo de cocinas',
     pdSpecTitle:'Especificaciones', pdTopsTitle:'Opciones de Cubierta', pdTabSizes:'Tamaños', pdTabCabinet:'Color de Gabinete', pdTabVanityTop:'Color de Cubierta', pdColorNote:'Vista previa de color simulada — el acabado real puede variar.',
     whyEye:'Por qué Modul Woods', whyTitle:'Cada gabinete, hecho a la medida.', whySub:'Nuestros gabinetes se pueden ajustar a tus especificaciones — tamaño, número de cajones, montado en pared o de piso — con la opción de incluir la cubierta que elijas, tanto para tocadores como cocinas. Las cubiertas vienen en mármol cultivado, granito cultivado y cuarzo.',
     why1:'Bisagras y cajones de cierre suave en cada gabinete', why2:'Construcción en MDF pintado, MDF laminado o thermofoil', why3:'Configuraciones montadas en pared o de piso', why4:'Cubiertas de tocador en cuarzo, mármol cultivado o granito cultivado', why5:'Medidas a la medida para lavabo central o doble', why6:'Gabinetes de cocina completos — islas, torres altas y almacenamiento interior', why7:'Closets a la medida — cajones, tubulares para colgar ropa y repisas abiertas', why8:'Diseñado para uso residencial, hotelero y multifamiliar', why9:'El combo completo de tocador — gabinete y cubierta de un solo proveedor',
     finEye:'Acabados y materiales', finTitle:'Acabados de gabinete y cubiertas de tocador.', finTabPainted:'Pintado', finTabLaminated:'Laminado', finTabThermofoil:'Thermofoil', finTabTops:'Cubiertas',
+    finTeaserSub:'Gabinetes pintados, laminados o thermofoil, combinados con cubiertas de cuarzo, mármol cultivado o granito cultivado — explora toda la paleta de acabados y materiales.', finMoreBtn:'Ver todos los acabados',
     ctaEye:'Satisfacción del cliente', ctaTitle:'Estamos comprometidos con la satisfacción del cliente.', ctaSub:'Nuestro equipo de ventas puede ayudarte con solicitudes de muestras y cualquier duda sobre nuestras colecciones de gabinetes.', ctaBtn:'Contáctanos',
     contactEye:'Contacto', contactTitle:'Envíanos un mensaje.', contactSub:'¿Tienes una pregunta, duda, problema o algo que decirnos? Nuestro equipo está listo para ayudarte.',
-    contactOfficeLabel:'Oficina corporativa', contactTollLabel:'Sin costo', contactServiceLabel:'Servicio al cliente',
+    contactOfficeLabel:'Ubicaciones', contactTollLabel:'Sin costo', contactServiceLabel:'Servicio al cliente',
     fName:'Nombre completo', fEmail:'Correo', fPhone:'Teléfono', fMessage:'Mensaje', fSend:'Enviar mensaje', fSending:'Enviando…', fThanks:'Gracias — recibimos tu mensaje. Un asesor te contactará pronto.', fError:'Algo salió mal. Intenta de nuevo, o escríbenos a sales1@modul-woods.com.',
-    footerDesc:'Gabinetes de tocador y cocina de calidad premium para proyectos residenciales, hoteleros y multifamiliares. Fabricados en Juárez, Nuevo León, México.', footerSiteLabel:'Sitio', footerCopy:'© 2026 Modul Woods. Sitio de referencia interno — no afiliado a ningún hosting externo.',
+    footerDesc:'Gabinetes de tocador y cocina de calidad premium para proyectos residenciales, hoteleros y multifamiliares. Fabricación en Monterrey, MX. Distribución en Laredo, TX.', footerSiteLabel:'Sitio', footerCopy:'© 2026 Modul Woods. Sitio de referencia interno — no afiliado a ningún hosting externo.',
     breadcrumbHome:'Inicio', breadcrumbProducts:'Productos',
-    galAll:'Colecciones', galAllTitle:'22 colecciones para elegir.', galAllSub:'Filtra por línea de producto para encontrar la colección que se ajusta a tu proyecto.',
+    galAll:'Colecciones', galAllTitle:'Encuentra la opción ideal para tu proyecto.', galAllSub:'Filtra por línea de producto para encontrar la colección que se ajusta a tu proyecto.',
     galFilteredSub:'Mostrando solo la línea {line}. Elige otra línea de producto arriba para cambiar.',
     customSizesTitle:'Tamaños Personalizados', customSizesDesc:'Esta colección se fabrica a la medida exacta que tu proyecto requiere — contacta a nuestro equipo de ventas con tus especificaciones.',
     chipAll:'Todos', chipPainted:'Pintado', chipLaminated:'Laminado', chipThermofoil:'Thermofoil', chipLuxury:'Luxury', chipEssential:'Essential',
@@ -1052,41 +1108,66 @@ function renderPdVanityTop(){
 }
 
 /* ===== ROUTER ===== */
+var FULLPAGE_IDS = ['coleccion','view-product','view-about','view-kitchens','view-finishes','lineas'];
 function parseRoute(){
   var h = location.hash;
   if(h.indexOf('#/product/') === 0) return {type:'product', slug: h.slice(10)};
   if(h.indexOf('#/line/') === 0) return {type:'line', key: h.slice(7)};
   if(h === '#/collections') return {type:'collections'};
+  if(h === '#/about') return {type:'about'};
+  if(h === '#/kitchens') return {type:'kitchens'};
+  if(h === '#/finishes') return {type:'finishes'};
+  if(h === '#/products') return {type:'products'};
   return null;
 }
-function showGridSections(){
-  document.getElementById('view-product').style.display = 'none';
-  document.querySelectorAll('.mw-main-section').forEach(function(s){ if(s.id!=='view-product') s.style.display=''; });
+function isFullPageOpen(){
+  return FULLPAGE_IDS.some(function(id){ var el=document.getElementById(id); return el && el.style.display !== 'none'; });
 }
-function showProductSection(){
-  document.querySelectorAll('.mw-main-section').forEach(function(s){ if(s.id!=='view-product') s.style.display='none'; });
-  document.getElementById('view-product').style.display = '';
+function showHome(){
+  FULLPAGE_IDS.forEach(function(id){ var el=document.getElementById(id); if(el) el.style.display='none'; });
+  document.querySelectorAll('.mw-main-section').forEach(function(s){ if(FULLPAGE_IDS.indexOf(s.id)===-1) s.style.display=''; });
+}
+function showFullPage(id){
+  document.querySelectorAll('.mw-main-section').forEach(function(s){ if(FULLPAGE_IDS.indexOf(s.id)===-1) s.style.display='none'; });
+  FULLPAGE_IDS.forEach(function(fid){ var el=document.getElementById(fid); if(el) el.style.display = (fid===id ? '' : 'none'); });
 }
 function onRouteChange(){
   var r = parseRoute();
   if(!r){
-    if(document.getElementById('view-product').style.display !== 'none'){ showGridSections(); }
+    if(isFullPageOpen()){ showHome(); }
+    var h = location.hash;
+    if(h && h.length>1 && h.indexOf('#/')!==0){
+      var target = document.getElementById(h.slice(1));
+      if(target) target.scrollIntoView();
+    }
     return;
   }
   if(r.type==='product'){
     renderProduct(r.slug);
-    showProductSection();
+    showFullPage('view-product');
     window.scrollTo(0,0);
   } else if(r.type==='line'){
     currentLine = LINE_KEY_TO_NAME[r.key] || 'All';
     renderChips(); renderGallery(); updateGalleryHeading();
-    showGridSections();
-    document.getElementById('coleccion').scrollIntoView();
+    showFullPage('coleccion');
+    window.scrollTo(0,0);
   } else if(r.type==='collections'){
     currentLine = 'All';
     renderChips(); renderGallery(); updateGalleryHeading();
-    showGridSections();
-    document.getElementById('coleccion').scrollIntoView();
+    showFullPage('coleccion');
+    window.scrollTo(0,0);
+  } else if(r.type==='about'){
+    showFullPage('view-about');
+    window.scrollTo(0,0);
+  } else if(r.type==='kitchens'){
+    showFullPage('view-kitchens');
+    window.scrollTo(0,0);
+  } else if(r.type==='finishes'){
+    showFullPage('view-finishes');
+    window.scrollTo(0,0);
+  } else if(r.type==='products'){
+    showFullPage('lineas');
+    window.scrollTo(0,0);
   }
 }
 window.addEventListener('hashchange', onRouteChange);
@@ -1114,7 +1195,7 @@ function mwGoTo(i){
 function mwSlide(dir){ mwGoTo(mwIndex + dir); }
 function mwResetTimer(){
   clearInterval(mwTimer);
-  mwTimer = setInterval(function(){ mwGoTo(mwIndex+1); }, 6000);
+  mwTimer = setInterval(function(){ mwGoTo(mwIndex+1); }, 9000);
 }
 mwRenderDots();
 mwResetTimer();
