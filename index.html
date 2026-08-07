@@ -657,7 +657,8 @@ var translations = {
     galAll:'Collections', galAllTitle:'Find the right fit for your project.', galAllSub:'Filter by product line to find the collection that fits your project.',
     galFilteredSub:'Showing only the {line} line. Choose a different product line above to switch.',
     customSizesTitle:'Custom Sizes', customSizesDesc:'This collection is built to the exact dimensions your project requires — contact our sales team with your specs.',
-    chipAll:'All', chipPainted:'Painted', chipLaminated:'Laminated', chipThermofoil:'Thermofoil', chipLuxury:'Luxury', chipEssential:'Essential',
+    chipAll:'All', chipPainted:'Painted', chipLaminated:'Laminated', chipThermofoil:'Thermofoil', chipQuartz:'Quartz', chipMarble:'Cultured Marble', chipGranite:'Cultured Granite',
+    headQuartz:'Quartz Material', headMarble:'Cultured Marble Material', headGranite:'Cultured Granite Material',
     lineNames:{Hospitality:'Hospitality', Premium:'Premium', 'Essential Line':'Essential Line'}
   },
   es: {
@@ -701,7 +702,8 @@ var translations = {
     galAll:'Colecciones', galAllTitle:'Encuentra la opción ideal para tu proyecto.', galAllSub:'Filtra por línea de producto para encontrar la colección que se ajusta a tu proyecto.',
     galFilteredSub:'Mostrando solo la línea {line}. Elige otra línea de producto arriba para cambiar.',
     customSizesTitle:'Tamaños Personalizados', customSizesDesc:'Esta colección se fabrica a la medida exacta que tu proyecto requiere — contacta a nuestro equipo de ventas con tus especificaciones.',
-    chipAll:'Todos', chipPainted:'Pintado', chipLaminated:'Laminado', chipThermofoil:'Thermofoil', chipLuxury:'Luxury', chipEssential:'Essential',
+    chipAll:'Todos', chipPainted:'Pintado', chipLaminated:'Laminado', chipThermofoil:'Thermofoil', chipQuartz:'Cuarzo', chipMarble:'Mármol Cultivado', chipGranite:'Granito Cultivado',
+    headQuartz:'Material de Cuarzo', headMarble:'Material de Mármol Cultivado', headGranite:'Material de Granito Cultivado',
     lineNames:{Hospitality:'Hospitalidad', Premium:'Premium', 'Essential Line':'Línea Essential'}
   }
 };
@@ -788,32 +790,20 @@ var FINISHES = {
     {name:'Sanatana Oak', img:'media/Sanatana-Oak.jpg'}
   ],
   tops: [
-    {name:'Calacatta Statuario', img:'media/Calacatta-Statuario.jpg', cat:'luxury'},
-    {name:'Calacatta Vienna', img:'media/Calacatta-Vienna.jpg', cat:'luxury'},
-    {name:'Calacatta Simply', img:'media/Calacatta-Simply.jpg', cat:'luxury'},
-    {name:'Calacatta Murano', img:'media/Calacatta-Murano.jpg', cat:'luxury'},
-    {name:'Bianco Gray', img:'media/Bianco-Gray.jpg', cat:'luxury'},
-    {name:'Bianco Gold', img:'media/Bianco-Gold.jpg', cat:'luxury'},
-    {name:'Lyra', img:'media/Lyra.jpg', cat:'luxury'},
-    {name:'Galaxy Gray', img:'media/Galaxy-Gray.jpg', cat:'luxury'},
-    {name:'Galaxy White', img:'media/Galaxy-White.jpg', cat:'luxury'},
-    {name:'Manhattan Gray', img:'media/Manhattan-Gray.jpg', cat:'luxury'},
-    {name:'Pure White', img:'media/Pure-White.jpg', cat:'luxury'},
-    {name:'Iceberg', img:'media/Iceberg.jpg', cat:'luxury'},
-    {name:'Frost', img:'media/Frost-1.jpg', cat:'luxury'},
-    {name:'Snow White', img:'media/Snow-White.jpg', cat:'luxury'},
-    {name:'Solid White', img:'media/Solid-White.jpg', cat:'economic'},
-    {name:'White / White', img:'media/White-White.jpg', cat:'economic'},
-    {name:'Italian White', img:'media/Italian-White.jpg', cat:'economic'},
-    {name:'Capuccino', img:'media/Capuccino.jpg', cat:'economic'},
-    {name:'Pewter', img:'media/Pewter.jpg', cat:'economic'},
-    {name:'Dune', img:'media/Dune.jpg', cat:'economic'},
-    {name:'Rockytrail', img:'media/Rockytrail.jpg', cat:'economic'},
-    {name:'Frost', img:'media/Frost.jpg', cat:'economic'},
-    {name:'MoonScape', img:'media/MoonScape.jpg', cat:'economic'},
-    {name:'MoonStone', img:'media/MoonStone.jpg', cat:'economic'},
-    {name:'Artic Stone', img:'media/Artic-Stone.jpg', cat:'economic'},
-    {name:'Boulder', img:'media/Boulder.jpg', cat:'economic'}
+    {name:'Pure White', img:'media/Pure-White.jpg', cat:'quartz'},
+    {name:'Snow White', img:'media/Snow-White.jpg', cat:'quartz'},
+    {name:'Galaxy White', img:'media/Galaxy-White.jpg', cat:'quartz'},
+    {name:'Galaxy Gray', img:'media/Galaxy-Gray.jpg', cat:'quartz'},
+    {name:'Manhattan', img:'media/Manhattan-Gray.jpg', cat:'quartz'},
+    {name:'Calacatta Vienna', img:'media/Calacatta-Vienna.jpg', cat:'quartz'},
+    {name:'Solid White', img:'media/Solid-White.jpg', cat:'marble'},
+    {name:'White / White', img:'media/White-White.jpg', cat:'marble'},
+    {name:'Italian White', img:'media/Italian-White.jpg', cat:'marble'},
+    {name:'Cappuccino', img:'media/Capuccino.jpg', cat:'granite'},
+    {name:'Pewter', img:'media/Pewter.jpg', cat:'granite'},
+    {name:'Dune', img:'media/Dune.jpg', cat:'granite'},
+    {name:'Frost', img:'media/Frost.jpg', cat:'granite'},
+    {name:'Artic Stone', img:'media/Artic-Stone.jpg', cat:'granite'}
   ]
 };
 
@@ -884,12 +874,14 @@ function renderFinishes(){
   });
   var panel = document.getElementById('panel-tops');
   panel.innerHTML = '';
-  ['luxury','economic'].forEach(function(cat){
+  var TOPS_CATS = [['quartz','headQuartz'],['marble','headMarble'],['granite','headGranite']];
+  TOPS_CATS.forEach(function(pair){
+    var cat = pair[0];
     var items = FINISHES.tops.filter(function(f){ return f.cat===cat; });
     if(!items.length) return;
     var heading = document.createElement('div');
     heading.className = 'pd-group-heading';
-    heading.textContent = cat==='luxury' ? T().chipLuxury : T().chipEssential;
+    heading.textContent = T()[pair[1]];
     panel.appendChild(heading);
     var row = document.createElement('div');
     row.style.cssText = 'display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:20px;';
@@ -1093,7 +1085,7 @@ function renderPdVanityTop(){
   var chipRow = document.createElement('div');
   chipRow.className = 'chip-scroll';
   chipRow.style.cssText = 'margin-bottom:26px;';
-  var opts = [['all',T().chipAll],['luxury',T().chipLuxury],['economic',T().chipEssential]];
+  var opts = [['all',T().chipAll],['quartz',T().chipQuartz],['marble',T().chipMarble],['granite',T().chipGranite]];
   opts.forEach(function(o){
     var chip = document.createElement('div');
     chip.className = 'pd-subchip' + (pdState.vanFilter===o[0] ? ' active' : '');
@@ -1103,13 +1095,14 @@ function renderPdVanityTop(){
   });
   panel.appendChild(chipRow);
   var groupsWrap = document.createElement('div');
-  ['luxury','economic'].forEach(function(cat){
+  [['quartz','headQuartz'],['marble','headMarble'],['granite','headGranite']].forEach(function(pair){
+    var cat = pair[0];
     if(pdState.vanFilter!=='all' && pdState.vanFilter!==cat) return;
     var items = FINISHES.tops.filter(function(f){ return f.cat===cat; });
     if(!items.length) return;
     var heading = document.createElement('div');
     heading.className = 'pd-group-heading';
-    heading.textContent = cat==='luxury' ? T().chipLuxury : T().chipEssential;
+    heading.textContent = T()[pair[1]];
     groupsWrap.appendChild(heading);
     var row = document.createElement('div');
     row.style.cssText = 'display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:18px;';
