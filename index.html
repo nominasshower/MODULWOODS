@@ -1001,6 +1001,11 @@ function renderPdGallery(){
   var c = pdState.product;
   var imgs = c.imgs && c.imgs.length ? c.imgs : [c.img];
   var mainImg = document.getElementById('pd-main-img');
+  mainImg.style.objectFit = 'cover';
+  mainImg.onload = function(){
+    var ratio = mainImg.naturalWidth / mainImg.naturalHeight;
+    mainImg.style.objectFit = (ratio < 1.05) ? 'contain' : 'cover';
+  };
   mainImg.src = imgs[pdState.imgIndex];
   mainImg.alt = c.name;
 
