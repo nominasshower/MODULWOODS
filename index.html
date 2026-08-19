@@ -156,6 +156,7 @@ footer a:hover{color:#fff!important;}
     <a href="#/kitchens" class="nav-link" style="color:rgba(255,255,255,0.78);" data-i18n="navKitchens">Kitchens</a>
     <a href="#/collections" class="nav-link" style="color:rgba(255,255,255,0.78);" data-i18n="navCollections">Collections</a>
     <a href="#/finishes" class="nav-link" style="color:rgba(255,255,255,0.78);" data-i18n="navFinishes">Finishes</a>
+    <a href="#/closets" class="nav-link" style="color:rgba(255,255,255,0.78);" data-i18n="navClosets">Closets</a>
     <a href="#contacto" class="nav-link" style="color:rgba(255,255,255,0.78);" data-i18n="navContact">Contact</a>
   </nav>
   <div style="display:flex;align-items:center;gap:14px;flex-shrink:0;">
@@ -171,6 +172,7 @@ footer a:hover{color:#fff!important;}
   <a href="#/kitchens" data-i18n="navKitchens">Kitchens</a>
   <a href="#/collections" data-i18n="navCollections">Collections</a>
   <a href="#/finishes" data-i18n="navFinishes">Finishes</a>
+  <a href="#/closets" data-i18n="navClosets">Closets</a>
   <a href="#contacto" data-i18n="navContact">Contact</a>
 </div>
 
@@ -376,6 +378,37 @@ footer a:hover{color:#fff!important;}
     <div style="display:flex;flex-wrap:wrap;gap:16px;margin-top:30px;">
       <a href="#contacto" style="background:var(--accent);color:#fff;padding:15px 32px;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;font-weight:600;border-radius:var(--radius);" data-i18n="kitCtaQuote">Request a kitchen quote</a>
       <a href="media/Kitchen-Solutions-Catalog.pdf" download style="border:1px solid var(--wood-dark);color:var(--wood-dark);padding:15px 32px;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;font-weight:600;border-radius:var(--radius);" data-i18n="kitCtaCatalog">Download kitchen catalog</a>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSETS FULL PAGE -->
+<section class="mw-main-section" id="view-closets" style="display:none;padding:clamp(110px,9vw,140px) clamp(20px,5vw,56px) clamp(64px,9vw,110px);background:var(--cream);">
+  <div style="max-width:1280px;margin:0 auto;">
+    <div class="mw-reveal" style="max-width:680px;">
+      <div style="font-size:13px;letter-spacing:0.26em;text-transform:uppercase;color:var(--accent-dark);font-weight:600;" data-i18n="clEye">Custom closets</div>
+      <h1 style="font-family:'Fraunces',serif;font-weight:500;font-size:clamp(2rem,4vw,3rem);line-height:1.1;margin:16px 0 0;" data-i18n="clTitle">Closets built around how you live.</h1>
+      <p style="font-size:clamp(15px,1.1vw,17px);line-height:1.75;color:#5C4A38;margin:16px 0 0;font-weight:300;" data-i18n="clSub">Beyond vanities and kitchens, we design and manufacture frameless closet systems — hanging rods, adjustable shelving and custom drawer banks — tailored to the exact dimensions of every room.</p>
+    </div>
+    <div class="mw-stagger" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;margin-top:44px;">
+      <div class="gal-card" style="grid-column:span 2;border-radius:var(--radius);overflow:hidden;box-shadow:0 20px 44px rgba(36,22,16,0.14);" onclick="mwOpenLightbox(event,'media/closets/closet-frontal.jpg','Modul Woods custom closet')">
+        <div style="aspect-ratio:16/9;overflow:hidden;"><img class="gal-img" src="media/closets/closet-frontal.jpg" alt="Modul Woods custom closet — floor-to-ceiling wardrobe" style="width:100%;height:100%;object-fit:cover;"></div>
+      </div>
+      <div class="gal-card" style="border-radius:var(--radius);overflow:hidden;box-shadow:0 14px 30px rgba(36,22,16,0.12);" onclick="mwOpenLightbox(event,'media/closets/closet-abierto.jpg','Modul Woods closet interior — shelving and drawers')">
+        <div style="aspect-ratio:4/3;overflow:hidden;"><img class="gal-img" src="media/closets/closet-abierto.jpg" alt="Modul Woods closet interior — hanging rods, shelving and drawers" style="width:100%;height:100%;object-fit:cover;"></div>
+      </div>
+      <div class="gal-card" style="border-radius:var(--radius);overflow:hidden;box-shadow:0 14px 30px rgba(36,22,16,0.12);" onclick="mwOpenLightbox(event,'media/closets/closet-ambientado.jpg','Modul Woods custom closet — installed project')">
+        <div style="aspect-ratio:4/3;overflow:hidden;"><img class="gal-img" src="media/closets/closet-ambientado.jpg" alt="Modul Woods custom closet — installed project" style="width:100%;height:100%;object-fit:cover;"></div>
+      </div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:12px 30px;margin-top:34px;padding-top:30px;border-top:1px solid var(--line);">
+      <div style="font-size:13px;color:#5C4A38;" data-i18n="clFact1"><strong style="color:var(--wood-dark);">Frameless</strong> construction</div>
+      <div style="font-size:13px;color:#5C4A38;" data-i18n="clFact2"><strong style="color:var(--wood-dark);">Soft-close</strong> hinges &amp; drawers</div>
+      <div style="font-size:13px;color:#5C4A38;" data-i18n="clFact3">Adjustable <strong style="color:var(--wood-dark);">shelving &amp; hanging rods</strong></div>
+      <div style="font-size:13px;color:#5C4A38;" data-i18n="clFact4">Built to <strong style="color:var(--wood-dark);">custom room dimensions</strong></div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:16px;margin-top:30px;">
+      <a href="#contacto" style="background:var(--accent);color:#fff;padding:15px 32px;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;font-weight:600;border-radius:var(--radius);" data-i18n="clCtaQuote">Request a closet quote</a>
     </div>
   </div>
 </section>
@@ -593,6 +626,7 @@ footer a:hover{color:#fff!important;}
           <a href="#/kitchens" style="color:rgba(255,255,255,0.65);" data-i18n="navKitchens">Kitchens</a>
           <a href="#/collections" style="color:rgba(255,255,255,0.65);" data-i18n="navCollections">Collections</a>
           <a href="#/finishes" style="color:rgba(255,255,255,0.65);" data-i18n="navFinishes">Finishes</a>
+          <a href="#/closets" style="color:rgba(255,255,255,0.65);" data-i18n="navClosets">Closets</a>
         </div>
       </div>
       <div>
@@ -621,7 +655,9 @@ footer a:hover{color:#fff!important;}
 var lang = 'en';
 var translations = {
   en: {
-    navAbout:'About', navLines:'Products', navKitchens:'Kitchens', navCollections:'Collections', navFinishes:'Finishes', navContact:'Contact',
+    navAbout:'About', navLines:'Products', navKitchens:'Kitchens', navCollections:'Collections', navFinishes:'Finishes', navClosets:'Closets', navContact:'Contact',
+    clEye:'Custom closets', clTitle:'Closets built around how you live.', clSub:'Beyond vanities and kitchens, we design and manufacture frameless closet systems — hanging rods, adjustable shelving and custom drawer banks — tailored to the exact dimensions of every room.',
+    clFact1:'<strong style="color:var(--wood-dark);">Frameless</strong> construction', clFact2:'<strong style="color:var(--wood-dark);">Soft-close</strong> hinges &amp; drawers', clFact3:'Adjustable <strong style="color:var(--wood-dark);">shelving &amp; hanging rods</strong>', clFact4:'Built to <strong style="color:var(--wood-dark);">custom room dimensions</strong>', clCtaQuote:'Request a closet quote',
     navQuote:'Request a quote', navQuoteMobile:'Get a quote',
     s1Eyebrow:'Modul Woods · Vanity & Kitchen Cabinets', s1Title:'Premium quality vanity & kitchen cabinets.', s1Sub:'We specialize in vanity and kitchen cabinets tailored to your design needs — size, drawers, wall-mount or free-standing — complete with the countertop of your choice.', s1Cta1:'See our products',
     s2Eyebrow:'Kitchen Cabinets', s2Title:'Full kitchens, built to order.', s2Sub:'Beyond vanities, we design and manufacture complete kitchen cabinetry — islands, tall pantry units and custom storage — finished with the countertop material of your choice.', s2Cta:'See our kitchens',
@@ -667,7 +703,9 @@ var translations = {
     lineNames:{Hospitality:'Hospitality', Premium:'Premium', 'Essential Line':'Essential Line'}
   },
   es: {
-    navAbout:'Nosotros', navLines:'Productos', navKitchens:'Cocinas', navCollections:'Colecciones', navFinishes:'Acabados', navContact:'Contacto',
+    navAbout:'Nosotros', navLines:'Productos', navKitchens:'Cocinas', navCollections:'Colecciones', navFinishes:'Acabados', navClosets:'Closets', navContact:'Contacto',
+    clEye:'Closets a la medida', clTitle:'Closets hechos para tu forma de vivir.', clSub:'Más allá de tocadores y cocinas, diseñamos y fabricamos closets sin marco — tubulares para colgar, repisas ajustables y torres de cajones a la medida — según las dimensiones exactas de cada cuarto.',
+    clFact1:'Construcción <strong style="color:var(--wood-dark);">sin marco</strong>', clFact2:'Bisagras y cajones de <strong style="color:var(--wood-dark);">cierre suave</strong>', clFact3:'Repisas y tubulares <strong style="color:var(--wood-dark);">ajustables</strong>', clFact4:'Hechos a la <strong style="color:var(--wood-dark);">medida de cada cuarto</strong>', clCtaQuote:'Cotizar un closet',
     navQuote:'Solicitar cotización', navQuoteMobile:'Cotizar',
     s1Eyebrow:'Modul Woods · Gabinetes de Tocador y Cocina', s1Title:'Gabinetes de tocador y cocina de calidad premium.', s1Sub:'Nos especializamos en gabinetes de tocador y cocina hechos a la medida de tu proyecto — tamaño, cajones, montado en pared o de piso — completos con la cubierta de tu elección.', s1Cta1:'Ver nuestros productos',
     s2Eyebrow:'Gabinetes de Cocina', s2Title:'Cocinas completas, hechas a la medida.', s2Sub:'Además de tocadores, diseñamos y fabricamos gabinetes de cocina completos — islas, torres altas y almacenamiento a la medida — terminados con el material de cubierta que elijas.', s2Cta:'Ver nuestras cocinas',
@@ -719,7 +757,7 @@ function applyTranslations(){
   document.querySelectorAll('[data-i18n]').forEach(function(el){
     var key = el.getAttribute('data-i18n');
     if(t[key] !== undefined && typeof t[key] === 'string'){
-      if(key.indexOf('kitFact')===0) el.innerHTML = t[key];
+      if(key.indexOf('kitFact')===0 || key.indexOf('clFact')===0) el.innerHTML = t[key];
       else el.textContent = t[key];
     }
   });
@@ -1138,7 +1176,7 @@ function renderPdVanityTop(){
 }
 
 /* ===== ROUTER ===== */
-var FULLPAGE_IDS = ['coleccion','view-product','view-about','view-kitchens','view-finishes','lineas'];
+var FULLPAGE_IDS = ['coleccion','view-product','view-about','view-kitchens','view-finishes','view-closets','lineas'];
 function parseRoute(){
   var h = location.hash;
   if(h.indexOf('#/product/') === 0) return {type:'product', slug: h.slice(10)};
@@ -1147,6 +1185,7 @@ function parseRoute(){
   if(h === '#/about') return {type:'about'};
   if(h === '#/kitchens') return {type:'kitchens'};
   if(h === '#/finishes') return {type:'finishes'};
+  if(h === '#/closets') return {type:'closets'};
   if(h === '#/products') return {type:'products'};
   return null;
 }
@@ -1194,6 +1233,9 @@ function onRouteChange(){
     window.scrollTo(0,0);
   } else if(r.type==='finishes'){
     showFullPage('view-finishes');
+    window.scrollTo(0,0);
+  } else if(r.type==='closets'){
+    showFullPage('view-closets');
     window.scrollTo(0,0);
   } else if(r.type==='products'){
     showFullPage('lineas');
